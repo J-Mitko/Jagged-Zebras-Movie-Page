@@ -1,0 +1,14 @@
+#main-screen {
+    background-color: #D3D3D3;
+    padding-top: 24px;
+    padding-bottom: 48px;
+}
+#screen {
+    display: block;
+    width: 600px;
+    height: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 6px double #000000;
+    box-shadow: 10px 10px 14px #202020;
+}
