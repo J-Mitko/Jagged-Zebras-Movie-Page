@@ -74,7 +74,7 @@ a.ptext::selection {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 #about-section {
-    padding-bottom: 160px;
+    padding-bottom: 128px;
 }
 div.window {
     position: relative;
@@ -103,16 +103,22 @@ div.window-title {
     justify-content: center;
     align-items: center;
 }
+div.window-title a.hidden-btn {
+    opacity: 0;
+}
+div.window-title a.is-showing {
+    opacity: 1;
+    transition: opacity 3.6s ease-in-out, color 1.8s;
+        -webkit-transition: opacity 3.6s ease-in-out, color 1.8s;
+	    -moz-transition: opacity 3.6s ease-in-out, color 1.8s;
+        -o-transition: opacity 3.6s ease-in-out, color 1.8s;
+}
 div.window-title a {
     color: #FFFFFF;
     background-color: #101010;
     font-size: 2em;
     border: 4px double #FFFFFF;
     padding: 8px 20px;
-    transition: 2.4s all;
-        -webkit-transition: 2.4s all;
-	    -moz-transition: 2.4s all;
-        -o-transition: 2.4s all;
 }
 div.window-title a:active {
     text-decoration: none;
@@ -123,10 +129,6 @@ div.window-title a:visited, div.window-title a:link {
 div.window-title a:hover {
     text-decoration: none;
     color: #F53F1A;
-    transition: 2.4s all;
-        -webkit-transition: 2.4s all;
-	    -moz-transition: 2.4s all;
-        -o-transition: 2.4s all;
 }
 
 /* On smaller screens: */

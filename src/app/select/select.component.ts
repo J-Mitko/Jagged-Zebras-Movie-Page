@@ -30,7 +30,7 @@ export class SelectComponent implements OnInit {
           const imgs = this.document.getElementsByClassName('hidden-img');
           const imgsArr = Array.from(imgs);
           imgsArr.forEach ((img, i) => {
-              setTimeout( () => {
+              setTimeout(() => {
                   img.classList.remove('hidden-img');
                   img.classList.add('is-showing');
               }, 100 * ((i + 1) * 2));
@@ -38,7 +38,7 @@ export class SelectComponent implements OnInit {
           const spans = this.document.getElementsByClassName('hidden-title');
           const spansArr = Array.from(spans);
           spansArr.forEach ((span, j) => {
-              setTimeout( () => {
+              setTimeout(() => {
                   span.classList.remove('hidden-title');
                   span.classList.add('title');
             }, 120 * ((j + 1) * 2));
