@@ -133,6 +133,12 @@ div.window-title a:hover {
 
 /* On smaller screens: */
 
+@media only screen and (max-width: 824px) {
+    div.parallax, div.window { 
+        background-attachment: scroll;
+    }
+}
+
 @media (max-width: 724px) {
     div.picture-text {
         font-size: 1.2em;

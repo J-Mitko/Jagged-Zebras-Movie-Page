@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { SafePipe } from './shared/safe.pipe';
 import { AppComponent } from './app.component';
 import { ScreenComponent } from './screen/screen.component';
 import { AboutComponent } from './about/about.component';
@@ -13,13 +14,16 @@ import { routes } from './app.router';
     AppComponent,
     ScreenComponent,
     AboutComponent,
-    SelectComponent
+    SelectComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
     routes
   ],
-  providers: [],
+  providers: [
+    SafePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

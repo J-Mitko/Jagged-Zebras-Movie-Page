@@ -2,5 +2,5 @@
   <iframe 
     id="screen" 
     allowfullscreen 
-    [src]="sanitizer.bypassSecurityTrustResourceUrl(src)"></iframe>
+    [src]="src | safepipe"></iframe>
 </div>
