@@ -12,3 +12,18 @@
     border: 6px double #000000;
     box-shadow: 10px 10px 14px #202020;
 }
+
+/* On smaller screens: */
+
+@media (max-width: 642px) {
+    #screen {
+        width: 480px;
+        height: 320px;
+    }
+}
+@media (max-width: 502px) {
+    #screen {
+        width: 360px;
+        height: 240px;
+    }
+}

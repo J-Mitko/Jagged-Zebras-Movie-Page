@@ -134,8 +134,14 @@ div.window-title a:hover {
 /* On smaller screens: */
 
 @media only screen and (max-width: 824px) {
-    div.parallax, div.window { 
+    div.parallax { 
         background-attachment: scroll;
+    }
+    div.parallax {
+        min-height: 480px;
+    }
+    #about-section {
+        padding-bottom: 96px;
     }
 }
 
@@ -148,6 +154,9 @@ div.window-title a:hover {
     div.picture-text {
         font-size: 1em;
     }
+    div.parallax {
+        min-height: 420px;
+    }
 }
 @media (max-width: 572px) {
     div.picture-text {
@@ -156,9 +165,22 @@ div.window-title a:hover {
     a.ptext { 
         padding: 12px;
     }
+    #about-section {
+        padding-bottom: 84px;
+    }
+    div.window {
+        width: 360px;
+        height: 360px;
+    }
 }
 @media (max-width: 502px) {
     a.ptext {
         background-color: inherit;
+    }
+    #about-section {
+        padding-bottom: 76px;
+    }
+    div.parallax {
+        min-height: 360px;
     }
 }
