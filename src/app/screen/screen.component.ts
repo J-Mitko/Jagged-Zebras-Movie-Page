@@ -19,8 +19,4 @@ export class ScreenComponent implements OnInit {
     this.url = this.route.snapshot.url.join('/');
     this.src = `https://www.youtube.com/embed/${this.url}?showinfo=0&modestbranding=0&rel=0`;
   }
-  transform(url) {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-  }
-
 }
