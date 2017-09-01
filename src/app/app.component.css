@@ -2,6 +2,47 @@ div, h1, p {
     margin: 0;
     padding: 0;
 }
+
+/* Navigation: */
+
+#navigation {
+    padding-top: 12px;
+    padding-bottom: 16px;
+}
+div.nav-controller {
+    padding-top: 6px;
+}
+div.nav-controller:first-child {
+    padding-left: 40px;
+}
+#search {
+    display: block;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 4px 4px 4px 4px;
+    border-radius: 4px;
+}
+#search:focus {
+    outline: none;
+}
+#search::-moz-placeholder {
+    color: #666666;
+}
+#search:focus::-moz-placeholder { 
+    color:transparent; 
+}
+#search::-webkit-input-placeholder {
+    color: #666666;
+    opacity: 0.6;
+}
+#search:focus::-webkit-input-placeholder { 
+    color:transparent;
+    background-color: #FFFFFF;
+}
+
+/* Main page: */
+
 div.parallax {
     position: relative;
     width: 100%;
