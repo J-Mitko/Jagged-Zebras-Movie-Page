@@ -9,17 +9,29 @@
       </div>
       <div class="col-sm-2 nav-controller">
         <span>Sign In</span>
-        <div class="dropdown-content">
-          <h3>If you already have an account with us, please log in here!</h3>
+        <div class="dropdown-content dropdown-content-left">
+          <h3>If you already have an account with us, please sign in here!</h3>
           <form>
-            <input type="text">
-            <input type="e-mail">
+            <label for="user">Please, select your username:</label>
+            <input id="user" type="text" placeholder="Username">
+            <label for="pass">Please, choose a password:</label>
+            <input id ="pass" type="e-mail" placeholder="Email">
             <button class="button" type="button">Sign In</button>
           </form>
         </div>
       </div>
       <div class="col-sm-2 nav-controller">
         <span>Sign Up</span>
+        <div class="dropdown-content dropdown-content-right">
+          <h3>If you are new on this page, please sign up here!</h3>
+          <form>
+            <label for="username">Username*</label>
+            <input id="username" type="text" placeholder="Username">
+            <label for="password">Password*</label>
+            <input id="password" type="e-mail" placeholder="Email">
+            <button class="button" type="button">Sign Up</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
