@@ -11,12 +11,14 @@
         <span>Sign In</span>
         <div class="dropdown-content dropdown-content-left">
           <h3>If you already have an account with us, please sign in here!</h3>
-          <form>
+          <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
             <label for="user">Please, select your username:</label>
-            <input id="user" type="text" placeholder="Username">
+            <input id="user" type="text" formControlName="name" placeholder="Username">
+            <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">This is required!</div>
             <label for="pass">Please, choose a password:</label>
-            <input id ="pass" type="e-mail" placeholder="Email">
-            <button class="button" type="button">Sign In</button>
+            <input id ="pass" type="password" formControlName="password" placeholder="Password">
+            <div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">This is required!</div>
+            <button class="button" type="submit" [disabled]="!rForm.valid">Sign In</button>
           </form>
         </div>
       </div>
@@ -28,7 +30,7 @@
             <label for="username">Username*</label>
             <input id="username" type="text" placeholder="Username">
             <label for="password">Password*</label>
-            <input id="password" type="e-mail" placeholder="Email">
+            <input id="password" type="password" placeholder="Password">
             <button class="button" type="button">Sign Up</button>
           </form>
         </div>

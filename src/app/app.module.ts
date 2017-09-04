@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SafePipe } from './shared/safe.pipe';
 import { AppComponent } from './app.component';
@@ -19,6 +20,8 @@ import { routes } from './app.router';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     routes
   ],
   providers: [
