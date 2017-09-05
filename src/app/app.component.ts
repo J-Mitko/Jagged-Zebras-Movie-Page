@@ -39,11 +39,20 @@ export class AppComponent {
 
   @HostListener('window:scroll', ['$event'])
 
-  onscroll(ev) {
-    const scrollY = Math.round(this.window.pageYOffset);
+  onScroll(ev) {
+    this.window.requestAnimationFrame(this.scrollHandler);
+  }
+
+  private scrollHandler = () => {
+    if (!this.document.getElementsByClassName('hidden-btn')) {
+      return;
+    }
+    const scrollY = this.window.pageYOffset;
+    let btns: any;
+    let btnsArr = Array<any>();
     if (scrollY >= 1960) {
-      const btns = this.document.getElementsByClassName('hidden-btn');
-      const btnsArr = Array.from(btns);
+      btns = this.document.getElementsByClassName('hidden-btn');
+      btnsArr = Array.from(btns);
       btnsArr.forEach((btn) => {
           setTimeout(() => {
             btn.classList.remove('hidden-btn');

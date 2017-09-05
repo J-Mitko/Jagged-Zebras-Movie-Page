@@ -12,14 +12,15 @@ img.hidden-img {
     transform: rotateY(90deg);
 }
 img.is-showing {
-    opacity: 1;
+    opacity: 0.82;
+    filter: grayscale(32%);
     transform: rotateY(0deg), scale(1);
     transition: all 1.2s ease-in-out;
 }
 img.is-showing:hover {
-    opacity: 0.86;
+    opacity: 1;
+    filter: grayscale(0);
     transform: scale(1.04);
-    filter: grayscale(32%);
     box-shadow: 8px 8px 8px #404040;
 }
 span.hidden-title {

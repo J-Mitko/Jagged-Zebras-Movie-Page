@@ -25,18 +25,30 @@ export class SelectComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(ev) {
-      const scrollY = Math.round(this.window.pageYOffset);
+      this.window.requestAnimationFrame(this.scrollHandler);
+  }
+
+  private scrollHandler = () => {
+      if (!this.document.getElementsByClassName('hidden-img')) {
+          return;
+      }
+      const scrollY = this.window.pageYOffset;
+      let imgs: any;
+      let imgsArr: Array<any>;
+      let spans: any;
+      let spansArr: Array<any>;
+
       if (scrollY >= 360) {
-          const imgs = this.document.getElementsByClassName('hidden-img');
-          const imgsArr = Array.from(imgs);
+          imgs = this.document.getElementsByClassName('hidden-img');
+          imgsArr = Array.from(imgs);
           imgsArr.forEach ((img, i) => {
               setTimeout(() => {
                   img.classList.remove('hidden-img');
                   img.classList.add('is-showing');
               }, 100 * ((i + 1) * 2));
 
-          const spans = this.document.getElementsByClassName('hidden-title');
-          const spansArr = Array.from(spans);
+          spans = this.document.getElementsByClassName('hidden-title');
+          spansArr = Array.from(spans);
           spansArr.forEach ((span, j) => {
               setTimeout(() => {
                   span.classList.remove('hidden-title');
@@ -44,7 +56,7 @@ export class SelectComponent implements OnInit {
             }, 120 * ((j + 1) * 2));
           });
         });
-    }
+      }
   }
 
 }
