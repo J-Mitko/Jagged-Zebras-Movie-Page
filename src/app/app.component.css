@@ -74,9 +74,24 @@ button.button {
     margin-top: 6px;
     padding: 4px 8px;
     border-radius: 4px;
+    transition: 1.2s ease-in-out;
+        -webkit-transition: 1.2s ease-in-out;
+	    -moz-transition: 1.2s ease-in-out;
+	    -o-transition: 1.2s ease-in-out;
+}
+button.button:hover {
+    background-color: #F53F1A;
+    box-shadow: 6px 6px 6px #404040;
 }
 div.nav-controller:hover div.dropdown-content {
     display: block;
+}
+div.alert {
+    padding: 4px 4px 0px 4px;
+    font-size: 0.8em;
+    color: #404040;
+    background-color: #FFFFE0;
+    border: 1px dotted #101010;
 }
 #search {
     display: block;

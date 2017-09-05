@@ -2,7 +2,7 @@
     background-color: #D3D3D3;
 }
 div.movie-con {
-    padding: 16px;
+    padding: 20px;
 }
 div.movie-con img {
     border-radius: 4px;
@@ -13,14 +13,20 @@ img.hidden-img {
 }
 img.is-showing {
     opacity: 1;
-    transform: rotateY(0deg);
+    transform: rotateY(0deg), scale(1);
     transition: all 1.2s ease-in-out;
+}
+img.is-showing:hover {
+    opacity: 0.86;
+    transform: scale(1.04);
+    filter: grayscale(32%);
+    box-shadow: 8px 8px 8px #404040;
 }
 span.hidden-title {
     opacity: 0;
 }
 span.title {
-    opacity: 0.8;
+    opacity: 0.92;
     transition: all 1.6s ease-in-out;
     position: absolute;
     right: 32px;
@@ -28,7 +34,7 @@ span.title {
     bottom: 24px;
     padding: 8px 20px;
     text-align: center;
-    background-color: #404040;
+    background-color: #202020;
     border-radius: 4px;
 }
 span.title a {
