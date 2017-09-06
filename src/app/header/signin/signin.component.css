@@ -87,3 +87,15 @@ form input:focus::-webkit-input-placeholder {
     color:transparent;
     background-color: #FFFFFF;
 }
+
+/* On smaller screens: */
+
+@media (max-width: 768px) {
+    div.nav-controller {
+        text-align: center;
+        margin-top: 12px;
+        padding-bottom: 6px;
+        border-top: 1px dashed #101010;
+        border-bottom: 1px dashed #101010;
+    }
+}
