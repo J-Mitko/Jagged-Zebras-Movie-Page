@@ -15,9 +15,6 @@ div.nav-controller {
 div.nav-controller:first-child {
     padding-left: 40px;
 }
-div.nav-controller span:hover {
-    cursor: pointer;
-}
 div.nav-controller a {
     color: #E4F0ED;
 }
@@ -26,70 +23,6 @@ div.nav-controller a:active, div.nav-controller a:visited, div.nav-controller a:
 }
 div.nav-controller a:hover {
     text-decoration: none;
-}
-div.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 28px;
-    background-color: rgba(211, 211, 211, 0.6);
-    width: 360px;
-    border-radius: 4px;
-    border: 1px dotted #000000;
-}
-div.dropdown-content-left {
-    left: -96px;
-}
-div.dropdown-content-right {
-    left: -192px;
-}
-div.dropdown-content h3 {
-    margin: 12px 8px;
-    font-size: 1em;
-    font-weight: bold;
-    color: #101010;
-}
-div.dropdown-content form {
-    margin: 12px 8px;
-}
-div.dropdown-content form label {
-    font-size: 0.8em;
-    color: #202020;
-}
-div.dropdown-content form input {
-    display: block;
-    color: #000000;
-    width: 100%;
-    margin-bottom: 6px;
-    padding: 4px 4px 0px 4px;
-    border-radius: 4px;
-}
-button.button {
-    font-weight: bold;
-    background-color: #101010;
-    width: 64%;
-    margin-top: 6px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: 1.2s ease-in-out;
-        -webkit-transition: 1.2s ease-in-out;
-	    -moz-transition: 1.2s ease-in-out;
-	    -o-transition: 1.2s ease-in-out;
-}
-button.button:hover {
-    background-color: #F53F1A;
-    color: #101010;
-    box-shadow: 6px 6px 6px #404040;
-}
-div.nav-controller:hover div.dropdown-content {
-    display: block;
-}
-div.alert {
-    padding: 4px 4px 0px 4px;
-    font-size: 0.8em;
-    color: #404040;
-    background-color: #FFFFE0;
-    border: 1px dotted #101010;
-    box-shadow: 4px 4px 4px #666666;
 }
 #search {
     display: block;
@@ -100,20 +33,20 @@ div.alert {
     padding: 4px 4px 0px 4px;
     border-radius: 4px;
 }
-div.dropdown-content form input:focus, button.button:focus, #search:focus {
+#search:focus {
     outline: none;
 }
-#search::-moz-placeholder, form input::-moz-placeholder {
+#search::-moz-placeholder {
     color: #666666;
 }
-#search:focus::-moz-placeholder, form input:focus::-moz-placeholder { 
+#search:focus::-moz-placeholder { 
     color:transparent; 
 }
-#search::-webkit-input-placeholder, form input::-webkit-input-placeholder {
+#search::-webkit-input-placeholder {
     color: #666666;
     opacity: 0.6;
 }
-#search:focus::-webkit-input-placeholder, form input:focus::-webkit-input-placeholder { 
+#search:focus::-webkit-input-placeholder { 
     color:transparent;
     background-color: #FFFFFF;
 }

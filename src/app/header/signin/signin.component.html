@@ -1,0 +1,19 @@
+<div class="col-sm-2 nav-controller">
+        <span>Sign In</span>
+        <div class="dropdown-content dropdown-content-left">
+          <h3>If you already have an account with us, please sign in here!</h3>
+          <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+            <label for="user">Please, select your username:</label>
+            <input id="user" type="text" formControlName="name" placeholder="Username">
+            <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+              Username should be between 4 and 30 symbols long!
+            </div>
+            <label for="pass">Please, choose a password:</label>
+            <input id ="pass" type="password" formControlName="password" placeholder="Password">
+            <div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">
+              Password should be between 6 and 30 symbols long!
+            </div>
+            <button class="button" type="submit" [disabled]="!rForm.valid">Sign In</button>
+          </form>
+        </div>
+      </div>
