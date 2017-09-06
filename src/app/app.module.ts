@@ -1,7 +1,8 @@
+import { HeaderComponent } from './header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { HeaderModule } from './header/header.module';
 import { SafePipe } from './shared/safe.pipe';
 import { AppComponent } from './app.component';
 import { ScreenComponent } from './screen/screen.component';
@@ -20,8 +21,7 @@ import { routes } from './app.router';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
+    HeaderModule,
     routes
   ],
   providers: [

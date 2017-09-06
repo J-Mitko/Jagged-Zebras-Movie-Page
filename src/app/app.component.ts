@@ -1,5 +1,4 @@
 import { Component, HostListener } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,29 +11,11 @@ export class AppComponent {
   title: string;
   document: Document;
   window: Window;
-  rForm: FormGroup;
-  post: any;
-  name: string;
-  password: string;
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
     this.title = 'The Jagged Zebras Movie Page';
     this.document = document;
     this.window = window;
-    this.rForm = fb.group({
-      'name': [null, Validators.compose(
-        [
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(30)
-        ])],
-      'password': [null, Validators.compose(
-        [
-          Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(30)
-        ])]
-    });
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -60,11 +41,5 @@ export class AppComponent {
           }, 0);
       });
     }
-  }
-
-   addPost(post) {
-    this.name = post.name;
-    this.password = post.password;
-    alert(`${this.name}, ${this.password}`);
   }
 }

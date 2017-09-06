@@ -1,47 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div id="navigation" class="row">
-      <div class="col-sm-2 nav-controller"><a routerLink="/">Home</a></div>
-      <div class="col-sm-6">
-        <form>
-          <input id="search" type="search" name="search" placeholder="Search">
-        </form>
-      </div>
-      <div class="col-sm-2 nav-controller">
-        <span>Sign In</span>
-        <div class="dropdown-content dropdown-content-left">
-          <h3>If you already have an account with us, please sign in here!</h3>
-          <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
-            <label for="user">Please, select your username:</label>
-            <input id="user" type="text" formControlName="name" placeholder="Username">
-            <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
-              Username should be between 4 and 30 symbols long!
-            </div>
-            <label for="pass">Please, choose a password:</label>
-            <input id ="pass" type="password" formControlName="password" placeholder="Password">
-            <div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">
-              Password should be between 6 and 30 symbols long!
-            </div>
-            <button class="button" type="submit" [disabled]="!rForm.valid">Sign In</button>
-          </form>
-        </div>
-      </div>
-      <div class="col-sm-2 nav-controller">
-        <span>Sign Up</span>
-        <div class="dropdown-content dropdown-content-right">
-          <h3>If you are new on this page, please sign up here!</h3>
-          <form>
-            <label for="username">Username*</label>
-            <input id="username" type="text" placeholder="Username">
-            <label for="password">Password*</label>
-            <input id="password" type="password" placeholder="Password">
-            <button class="button" type="button">Sign Up</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
+<app-header></app-header>
 <div class="parallax first-pic" style="background-image: url('../assets/images/Movie_Camera.jpeg')">
   <div class="picture-text">
     <a routerLink="/" class="ptext">{{title}}</a>
