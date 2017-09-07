@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { AuthService } from './core/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -54,15 +55,15 @@ export class AppComponent {
       btns = this.document.getElementsByClassName('hidden-btn');
       btnsArr = Array.from(btns);
       btnsArr.forEach((btn) => {
-          setTimeout(() => {
-            btn.classList.remove('hidden-btn');
-            btn.classList.add('is-showing');
-          }, 0);
+        setTimeout(() => {
+          btn.classList.remove('hidden-btn');
+          btn.classList.add('is-showing');
+        }, 0);
       });
     }
   }
 
-   addPost(post) {
+  addPost(post) {
     this.name = post.name;
     this.password = post.password;
     alert(`${this.name}, ${this.password}`);
