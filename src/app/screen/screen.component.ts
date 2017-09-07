@@ -16,7 +16,7 @@ export class ScreenComponent implements OnInit {
   constructor(private route: ActivatedRoute, public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.url = this.route.snapshot.url.join('/');
+    this.url = this.route.snapshot.url.join('/').substring(6);
     this.src = `https://www.youtube.com/embed/${this.url}?showinfo=0&modestbranding=0&rel=0`;
   }
 }

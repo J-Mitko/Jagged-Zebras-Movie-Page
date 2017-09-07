@@ -9,7 +9,7 @@ import { SelectComponent } from './select/select.component';
 export const router: Routes = [
     { path: '', component: SelectComponent },
     { path: 'about', component: AboutComponent },
-    { path: ':id', component: ScreenComponent}
+    { path: 'video/:id', component: ScreenComponent}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);
