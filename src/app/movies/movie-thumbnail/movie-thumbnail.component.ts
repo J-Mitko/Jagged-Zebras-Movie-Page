@@ -1,7 +1,7 @@
 // import { SafePipe } from './../../shared/safe.pipe';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params, Router, UrlSegment } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
+import { SafePipe } from '../../shared/safe.pipe';
 
 @Component({
   selector: 'app-movie-thumbnail',
@@ -9,14 +9,14 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./movie-thumbnail.component.css']
 })
 export class MovieThumbnailComponent implements OnInit {
-  url: string;
-  src: string;
-
+  private poster = 'http://image.tmdb.org/t/p/w300';
   @Input() movie;
-  constructor(private route: ActivatedRoute, public sanitizer: DomSanitizer) { }
+  constructor(private route: ActivatedRoute, public sanitizer: SafePipe) { }
 
   ngOnInit() {
-    this.url = this.route.snapshot.url.join('/').substring(6);
-    this.src = `https://www.youtube.com/embed/${this.url}?showinfo=0&modestbranding=0&rel=0`;
+  }
+
+  posterUrl() {
+    return this.poster + this.movie.poster_path;
   }
 }

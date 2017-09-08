@@ -1,3 +1,4 @@
+import { IMovie } from './../movie.model';
 import { MoviesService } from './../movies.service';
 import { Component, OnInit, HostListener } from '@angular/core';
 
@@ -8,15 +9,15 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class MovieGridComponent implements OnInit {
 
-  movies;
+  movies: IMovie[];
   document: Document;
   window: Window;
 
   constructor(private movieService: MoviesService) {
-    this.movies = movieService.getAll();
-    this.movies.forEach((movie) => {
-      movie.url = `http://i3.ytimg.com/vi/${movie.id}/maxresdefault.jpg`;
-    });
+    this.movieService.getMoviesByPopularity()
+      .subscribe(res => {
+        this.movies = res.splice(0, 9);
+      });
     this.document = document;
     this.window = window;
   }

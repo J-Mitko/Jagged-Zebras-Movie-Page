@@ -1,2 +1,4 @@
-<img src="{{url}}" class="img-responsive hidden-img">
-<span class="hidden-title"><a routerLink="video/details/{{movie.id}}">{{movie.title}}</a></span>
+<img src="{{posterUrl()}}" class="img-responsive hidden-img">
+<span class="hidden-title">
+    <a routerLink="movie/details/{{movie.id}}">{{movie.title}}</a>
+</span>

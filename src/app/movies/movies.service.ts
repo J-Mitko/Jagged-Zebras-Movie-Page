@@ -1,14 +1,34 @@
-import { MovieResponse } from './movie.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';
+import { IMovie } from './movie.model';
 
 @Injectable()
 export class MoviesService {
-  apiUrl = 'http://localhost:3000/results';
+  private apiUrl = 'http://localhost:3000/results';
+  private api_key = '28c57aa94fd0201c8fa6edc867cd6815';
+  private movieDetailsUrl = `https://api.themoviedb.org/3/movie/{movie_id}?api_key=${this.api_key}&append_to_response=videos`;
   constructor(private http: HttpClient) { }
 
+  getDetailsForMovie(movieId: string) {
+    this.movieDetailsUrl = this.movieDetailsUrl.replace(/{movie_id}/, movieId);
+    return this.http
+      .get<IMovie>(this.movieDetailsUrl)
+      .map(res => {
+        return res;
+      });
+  }
+  getMoviesByPopularity(): Observable<IMovie[]> {
+    return this.http
+      .get<IMovie[]>(this.apiUrl)
+      .map(res => {
+        return res;
+      });
+    // .catch((err: Response) => {
+    //   Observable.throw(err.statusText);
+    // });
+  }
   getAll() {
     return [
       { title: 'Honest Trailers - Guardians of the Galaxy 2', id: 'z_p3OEpeviM' },

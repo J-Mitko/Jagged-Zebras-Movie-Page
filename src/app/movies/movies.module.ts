@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesService } from './movies.service';
 import { NgModule } from '@angular/core';
@@ -12,12 +13,14 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
   imports: [
     CommonModule,
     MoviesRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   declarations: [
     MovieGridComponent,
     MovieThumbnailComponent,
-    MovieDetailsComponent],
+    MovieDetailsComponent
+  ],
   providers: [MoviesService]
 })
 export class MoviesModule { }

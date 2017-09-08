@@ -1,4 +1,4 @@
-export interface MovieResponse {
+export interface IMovie {
     belongs_to_collection: object;
     genres: object[];
     id: number;
