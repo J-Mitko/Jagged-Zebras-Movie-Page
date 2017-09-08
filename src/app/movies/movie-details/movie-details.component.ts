@@ -13,7 +13,9 @@ export class MovieDetailsComponent implements OnInit {
   movie: IMovie;
   youtubeUrl: string;
 
-  constructor(private route: ActivatedRoute, public sanitizer: SafePipe, private movieService: MoviesService) {
+  constructor(private route: ActivatedRoute, public sanitizer: SafePipe, private movieService: MoviesService) { }
+
+  ngOnInit() {
     this.route.params.subscribe(res => {
       const movieId = res['id'];
       this.movieService.getDetailsForMovie(movieId).subscribe(mov => {
@@ -22,10 +24,7 @@ export class MovieDetailsComponent implements OnInit {
         this.youtubeUrl = `https://www.youtube.com/embed/${key}?showinfo=0&modestbranding=0&rel=0`;
       });
     });
-
   }
-
-  ngOnInit() { }
 
   movieUrl() {
     return this.sanitizer.transform(this.youtubeUrl);

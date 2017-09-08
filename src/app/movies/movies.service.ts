@@ -8,13 +8,12 @@ import { IMovie } from './movie.model';
 export class MoviesService {
   private apiUrl = 'http://localhost:3000/results';
   private api_key = '28c57aa94fd0201c8fa6edc867cd6815';
-  private movieDetailsUrl = `https://api.themoviedb.org/3/movie/{movie_id}?api_key=${this.api_key}&append_to_response=videos`;
   constructor(private http: HttpClient) { }
 
   getDetailsForMovie(movieId: string) {
-    this.movieDetailsUrl = this.movieDetailsUrl.replace(/{movie_id}/, movieId);
+    const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.api_key}&append_to_response=videos`;
     return this.http
-      .get<IMovie>(this.movieDetailsUrl)
+      .get<IMovie>(movieDetailsUrl)
       .map(res => {
         return res;
       });
