@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { MoviesService } from './../movies.service';
 import { IMovie } from './../movie.model';
 import { Component, OnInit } from '@angular/core';
@@ -13,16 +14,21 @@ export class MovieDetailsComponent implements OnInit {
   movie: IMovie;
   youtubeUrl: string;
 
-  constructor(private route: ActivatedRoute, public sanitizer: SafePipe, private movieService: MoviesService) { }
+  constructor(
+    private route: ActivatedRoute,
+    public sanitizer: SafePipe,
+    private movieService: MoviesService
+  ) { }
 
   ngOnInit() {
-    this.route.params.subscribe(res => {
-      const movieId = res['id'];
-      this.movieService.getDetailsForMovie(movieId).subscribe(mov => {
-        this.movie = mov;
-        const key = this.movie.videos['results'][0].key;
-        this.youtubeUrl = `https://www.youtube.com/embed/${key}?showinfo=0&modestbranding=0&rel=0`;
-      });
+    // Add from data guard
+    this.route.data.subscribe((data: { movie: IMovie }) => {
+      this.movie = data.movie;
+      const key = this.movie.videos['results'][0].key;
+      this.youtubeUrl = `https://www.youtube.com/embed/${key}?showinfo=0&modestbranding=0&rel=0`;
+    }, (err: Response) => {
+      console.log('error in movie detals component');
+      console.log(err.statusText);
     });
   }
 

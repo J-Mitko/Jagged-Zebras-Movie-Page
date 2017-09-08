@@ -8,13 +8,14 @@ import { MoviesRoutingModule } from './movies-routing.module';
 import { MovieGridComponent } from './movie-grid/movie-grid.component';
 import { MovieThumbnailComponent } from './movie-thumbnail/movie-thumbnail.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     MoviesRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
   ],
   declarations: [
     MovieGridComponent,
