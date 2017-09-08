@@ -1,4 +1,6 @@
 <div id="main-screen">
   <!-- TODO: add safepipe -->
+  <h1>{{movie.title}}</h1>
+  <p>{{movie.overview}}</p>
   <iframe id="screen" allowfullscreen [src]="youtubeUrl | safepipe"></iframe>
 </div>

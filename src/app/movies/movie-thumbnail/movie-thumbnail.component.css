@@ -21,8 +21,8 @@ span.title {
     opacity: 0.92;
     transition: all 1.6s ease-in-out;
     position: absolute;
-    right: 32px;
-    left: 32px;
+    right: 50px;
+    left: 40px;
     bottom: 32px;
     padding: 8px 20px;
     text-align: center;

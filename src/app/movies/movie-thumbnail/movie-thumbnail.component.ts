@@ -1,3 +1,4 @@
+import { IMovie } from './../movie.model';
 // import { SafePipe } from './../../shared/safe.pipe';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params, Router, UrlSegment } from '@angular/router';
@@ -10,7 +11,8 @@ import { SafePipe } from '../../shared/safe.pipe';
 })
 export class MovieThumbnailComponent implements OnInit {
   private poster = 'http://image.tmdb.org/t/p/w300';
-  @Input() movie;
+  @Input() movie: IMovie;
+
   constructor(private route: ActivatedRoute, public sanitizer: SafePipe) { }
 
   ngOnInit() {
