@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: MovieGridComponent },
-  { path: 'video/:id', component: MovieThumbnailComponent }
+  { path: 'movie/details/:id', component: MovieDetailsComponent }
 ];
 
 @NgModule({

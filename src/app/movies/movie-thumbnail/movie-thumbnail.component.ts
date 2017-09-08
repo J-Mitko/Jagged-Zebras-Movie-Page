@@ -1,6 +1,6 @@
 // import { SafePipe } from './../../shared/safe.pipe';
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params, Router, UrlSegment } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({

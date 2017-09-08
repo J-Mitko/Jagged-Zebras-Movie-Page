@@ -1,9 +1,13 @@
+import { MovieResponse } from './movie.model';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/Rx';
 
 @Injectable()
 export class MoviesService {
-
-  constructor() { }
+  apiUrl = 'http://localhost:3000/results';
+  constructor(private http: HttpClient) { }
 
   getAll() {
     return [
@@ -16,3 +20,4 @@ export class MoviesService {
     ];
   }
 }
+

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { MoviesService } from './movies.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,9 +11,13 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 @NgModule({
   imports: [
     CommonModule,
-    MoviesRoutingModule
+    MoviesRoutingModule,
+    HttpClientModule
   ],
-  declarations: [MovieGridComponent, MovieThumbnailComponent, MovieDetailsComponent],
+  declarations: [
+    MovieGridComponent,
+    MovieThumbnailComponent,
+    MovieDetailsComponent],
   providers: [MoviesService]
 })
 export class MoviesModule { }
