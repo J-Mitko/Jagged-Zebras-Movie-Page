@@ -1,4 +1,4 @@
-// import { SafePipe } from './../../shared/safe.pipe';
+import { MoviesService } from './../movies.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params, Router, UrlSegment } from '@angular/router';
 import { SafePipe } from '../../shared/safe.pipe';
@@ -9,14 +9,22 @@ import { SafePipe } from '../../shared/safe.pipe';
   styleUrls: ['./movie-thumbnail.component.css']
 })
 export class MovieThumbnailComponent implements OnInit {
-  private poster = 'http://image.tmdb.org/t/p/w300';
+  private poster: string;
   @Input() movie;
-  constructor(private route: ActivatedRoute, public sanitizer: SafePipe) { }
+  constructor(private route: ActivatedRoute, public sanitizer: SafePipe, private movieService: MoviesService) { }
 
   ngOnInit() {
+    this.route.params.subscribe(res => {
+      const movieId = this.movie.id;
+      this.movieService.getDetailsForMovie(movieId).subscribe(mov => {
+        this.movie = mov;
+        const key = this.movie.videos['results'][0].key;
+        this.poster = `http://i3.ytimg.com/vi/${key}/maxresdefault.jpg`;
+      });
+    });
   }
 
   posterUrl() {
-    return this.poster + this.movie.poster_path;
+    return this.poster;
   }
 }
