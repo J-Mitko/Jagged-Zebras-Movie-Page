@@ -1,0 +1,9 @@
+#movie-container {
+    background-color: #D3D3D3;
+}
+div.movie-con {
+    padding: 20px;
+}
+div.movie-con img {
+    border-radius: 4px;
+}

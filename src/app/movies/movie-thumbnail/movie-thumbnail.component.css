@@ -1,0 +1,51 @@
+
+
+img.hidden-img {
+    opacity: 0;
+    transform: rotateY(90deg);
+}
+img.is-showing {
+    opacity: 0.82;
+    filter: grayscale(32%);
+    transform: rotateY(0deg), scale(1);
+    transition: all 1.2s ease-in-out;
+}
+img.is-showing:hover {
+    opacity: 1;
+    filter: grayscale(0);
+    transform: scale(1.04);
+    box-shadow: 8px 8px 8px #404040;
+}
+span.hidden-title {
+    opacity: 0;
+}
+span.title {
+    opacity: 0.92;
+    transition: all 1.6s ease-in-out;
+    position: absolute;
+    right: 32px;
+    left: 32px;
+    bottom: 24px;
+    padding: 8px 20px;
+    text-align: center;
+    background-color: #202020;
+    border-radius: 4px;
+}
+span.title a {
+    color: #FFFFFF;
+    transition: 2.4s all;
+        -webkit-transition: 2.4s all;
+	    -moz-transition: 2.4s all;
+	    -o-transition: 2.4s all;
+}
+span.title a:active, span.title a:visited, span.title a:link {
+    text-decoration: none;
+}
+span.title a:hover {
+    text-decoration: none;
+    color: #F53F1A;
+    transition: 2.4s all;
+        -webkit-transition: 2.4s all;
+	    -moz-transition: 2.4s all;
+	    -o-transition: 2.4s all;
+}
