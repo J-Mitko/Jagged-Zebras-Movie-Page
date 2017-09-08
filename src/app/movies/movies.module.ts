@@ -9,6 +9,9 @@ import { MovieGridComponent } from './movie-grid/movie-grid.component';
 import { MovieThumbnailComponent } from './movie-thumbnail/movie-thumbnail.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { RouterModule } from '@angular/router';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from './../../environments/environment';
+import { AngularFireModule } from 'angularfire2';
 
 @NgModule({
   imports: [
@@ -16,6 +19,8 @@ import { RouterModule } from '@angular/router';
     MoviesRoutingModule,
     HttpClientModule,
     SharedModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   declarations: [
     MovieGridComponent,
@@ -25,3 +30,4 @@ import { RouterModule } from '@angular/router';
   providers: [MoviesService]
 })
 export class MoviesModule { }
+

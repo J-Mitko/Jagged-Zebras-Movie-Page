@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
-
 import { MovieDetailResolverService } from './movie-detail-resolver.service';
+
 
 describe('MovieDetailResolverService', () => {
   beforeEach(() => {

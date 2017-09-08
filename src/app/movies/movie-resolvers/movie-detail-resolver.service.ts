@@ -6,8 +6,8 @@ import {
   Router, Resolve, RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { MoviesService } from './movies.service';
-import { IMovie } from './movie.model';
+import { MoviesService } from './../movies.service';
+import { IMovie } from './../movie.model';
 
 @Injectable()
 export class MovieDetailResolverService implements Resolve<IMovie>  {
