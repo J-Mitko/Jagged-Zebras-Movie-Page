@@ -1,6 +1,7 @@
 import { IMovie } from './../movies/movie.model';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { MoviesService } from '../movies/movies.service';
+import { WindowRef } from './../window.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,13 +13,12 @@ export class HomeComponent implements OnInit {
 
   title: string;
   document: Document;
-  window: Window;
   popularMovies: IMovie[];
 
   constructor(private movieService: MoviesService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private winRef: WindowRef) {
     this.document = document;
-    this.window = window;
     this.title = 'The Jagged Zebras Movie Page';
   }
 
@@ -38,14 +38,14 @@ export class HomeComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
 
   onScroll(ev) {
-    this.window.requestAnimationFrame(this.scrollHandler);
+    this.winRef.nativeWindow.requestAnimationFrame(this.scrollHandler);
   }
 
   private scrollHandler = () => {
     if (!this.document.getElementsByClassName('hidden-btn')) {
       return;
     }
-    const scrollY = this.window.pageYOffset;
+    const scrollY = this.winRef.nativeWindow.pageYOffset;
     let btns: any;
     let btnsArr = Array<any>();
     if (scrollY >= 1960) {

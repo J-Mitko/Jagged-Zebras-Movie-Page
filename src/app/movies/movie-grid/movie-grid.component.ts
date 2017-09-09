@@ -1,5 +1,6 @@
 import { IMovie } from './../movie.model';
 import { MoviesService } from './../movies.service';
+import { WindowRef } from './../../window.service';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';
@@ -13,14 +14,11 @@ export class MovieGridComponent implements OnInit {
 
   movies: FirebaseListObservable<IMovie[]> | IMovie[];
   document: Document;
-  window: Window;
 
-  constructor(
-    private movieService: MoviesService,
-    private route: ActivatedRoute
-  ) {
+  constructor(private movieService: MoviesService,
+    private route: ActivatedRoute,
+    private winRef: WindowRef) {
     this.document = document;
-    this.window = window;
   }
 
   ngOnInit() {
@@ -34,14 +32,14 @@ export class MovieGridComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(ev) {
-    this.window.requestAnimationFrame(this.scrollHandler);
+    this.winRef.nativeWindow.requestAnimationFrame(this.scrollHandler);
   }
 
   private scrollHandler = () => {
     if (!this.document.getElementsByClassName('hidden-img')) {
       return;
     }
-    const scrollY = this.window.pageYOffset;
+    const scrollY = this.winRef.nativeWindow.pageYOffset;
     let imgs: any;
     let imgsArr: Array<any>;
     let spans: any;

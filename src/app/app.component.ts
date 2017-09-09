@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WindowRef } from './window.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,10 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
 
-  constructor() {
-  }
+  constructor(private winRef: WindowRef) { }
+
+  onDeactivate() {
+    this.winRef.nativeWindow.scrollTo(0, 0);
+}
 
 }
