@@ -1,12 +1,3 @@
-#movie-container {
-    background-color: #D3D3D3;
-}
-div.movie-con {
-    padding: 20px;
-}
-div.movie-con img {
-    border-radius: 4px;
-}
 img.hidden-img {
     opacity: 0;
     transform: rotateY(90deg);
@@ -30,12 +21,12 @@ span.title {
     opacity: 0.92;
     transition: all 1.6s ease-in-out;
     position: absolute;
-    right: 32px;
-    left: 32px;
-    bottom: 24px;
+    right: 50px;
+    left: 40px;
+    bottom: 32px;
     padding: 8px 20px;
     text-align: center;
-    background-color: #202020;
+    background-color: #606060;
     border-radius: 4px;
 }
 span.title a {
