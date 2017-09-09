@@ -4,7 +4,10 @@
       <div class="col-sm-2 nav-controller">
         <a routerLink="/">Home</a>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-2 nav-controller">
+        <a routerLink="/movies">Explore movies</a>
+      </div>
+      <div class="col-sm-4">
         <form>
           <input id="search" type="search" name="search" placeholder="Search" #searchMovie
               (keyup.enter)="getMovies(searchMovie.value)"

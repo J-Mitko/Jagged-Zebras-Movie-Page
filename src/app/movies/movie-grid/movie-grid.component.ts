@@ -1,9 +1,9 @@
 import { IMovie } from './../movie.model';
 import { MoviesService } from './../movies.service';
-import { WindowRef } from './../../window.service';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';
+import { WindowRef } from '../../shared/window.service';
 
 @Component({
   selector: 'app-movie-grid',

@@ -1,8 +1,8 @@
 import { IMovie } from './../movies/movie.model';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { MoviesService } from '../movies/movies.service';
-import { WindowRef } from './../window.service';
 import { ActivatedRoute } from '@angular/router';
+import { WindowRef } from '../shared/window.service';
 
 @Component({
   selector: 'app-home',

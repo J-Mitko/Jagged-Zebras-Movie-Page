@@ -18,7 +18,7 @@ import { AngularFireModule } from 'angularfire2';
     CommonModule,
     MoviesRoutingModule,
     HttpClientModule,
-    SharedModule,
+    SharedModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
