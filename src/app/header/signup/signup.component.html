@@ -1,0 +1,45 @@
+<div bsModal #signupModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signupModule" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Sign Up</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="userSignUpFrom">
+                    <button class="btn-fb" (click)="signInWithFacebook()"> <i class="fa fa-fw fa-facebook pull-left" aria-hidden="true" ></i>
+                        Sign up with Facebook	
+                    </button> <br>
+                    <button class="btn-gp" (click)="signInWithGoogle()"> <i class="fa fa-fw fa-google-plus pull-left " aria-hidden="true"></i>
+                        Sign up with Google	
+                    </button> <br>
+
+                    <div class="signup-or-separator">
+                        <span class="h6 signup-or-separator--text">or</span>
+                        <hr>
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="email" id="email" class="input form-control-form" formControlName="email" required>
+
+                        <div *ngIf="formErrors.email" class="notification is-danger">
+                            {{ formErrors.email }}
+                        </div>
+
+                        <input type="password" id="password" class="input form-control-form" formControlName="password" required>
+
+                        <div *ngIf="formErrors.password" class="notification is-danger">
+                            {{ formErrors.password }}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn-lgin" (click)="signup()">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>

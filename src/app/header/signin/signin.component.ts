@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../core/auth.service';
-import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalDirective, ModalModule } from 'ngx-bootstrap/ng2-bootstrap';
+import { AuthService } from '../../core/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-user-login',
-  templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.css']
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.css']
 })
-export class UserLoginComponent implements OnInit {
+export class SigninComponent implements OnInit {
 
-  userForm: FormGroup;
+  userSignInFrom: FormGroup;
+  @ViewChild('signinModal') public signinModal: ModalDirective;
+
   formErrors = {
     'email': '',
     'password': ''
@@ -28,23 +31,15 @@ export class UserLoginComponent implements OnInit {
     }
   };
 
-  constructor(private fb: FormBuilder, public auth: AuthService) {
+  constructor(private fb: FormBuilder, private auth: AuthService) {
     this.buildForm();
   }
 
   ngOnInit() {
   }
 
-  signup(): void {
-    this.auth.emailSignUp(this.userForm.value['email'], this.userForm.value['password']);
-  }
-
-  login(): void {
-    this.auth.emailLogin(this.userForm.value['email'], this.userForm.value['password']);
-  }
-
   buildForm(): void {
-    this.userForm = this.fb.group({
+    this.userSignInFrom = this.fb.group({
       'email': ['', [
         Validators.required,
         Validators.email
@@ -52,28 +47,48 @@ export class UserLoginComponent implements OnInit {
       ],
       'password': ['', [
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-        Validators.minLength(6),
+        Validators.minLength(3),
         Validators.maxLength(25)
       ]
       ],
     });
 
-    this.userForm.valueChanges.subscribe(data => this.onValueChanged(data));
+    this.userSignInFrom.valueChanges.subscribe(data => this.onValueChanged(data));
     this.onValueChanged(); // reset validation messages
   }
 
-  // Updates validation state on form changes.
+  show() {
+    this.signinModal.show();
+  }
+  hide() {
+    this.signinModal.hide();
+  }
+
+  signInWithGoogle(): void {
+    this.auth.googleLogin()
+      .then(() => console.log('google'));
+  }
+
+  signInWithFacebook(): void {
+    this.auth.facebookLogin()
+      .then(() => console.log('facebook'));
+  }
+
+  login(): void {
+    this.auth.emailLogin(this.userSignInFrom.value['email'], this.userSignInFrom.value['password']);
+  }
+
   onValueChanged(data?: any) {
-    if (!this.userForm) {
+    if (!this.userSignInFrom) {
       return;
     }
-    const form = this.userForm;
+    const form = this.userSignInFrom;
+
     for (const field in this.formErrors) {
       if (this.formErrors.hasOwnProperty(field)) {
         // clear previous error message (if any)
         this.formErrors[field] = '';
         const control = form.get(field);
-
         if (control && control.dirty && !control.valid) {
           const messages = this.validationMessages[field];
           for (const key in control.errors) {

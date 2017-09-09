@@ -1,0 +1,74 @@
+/* Navigation: */
+
+#navigation {
+    padding-top: 12px;
+    padding-bottom: 16px;
+    color: #E4F0ED;
+    background-image: url("../../assets/images/ZenBG1.png"), url("../../assets/images/ZenBG2.png");
+    background-repeat: repeat-x, repeat;
+}
+div.nav-controller {
+    padding-top: 4px;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+div.nav-controller:first-child {
+    padding-left: 40px;
+}
+div.nav-controller a {
+    color: #E4F0ED;
+}
+div.nav-controller a:active, div.nav-controller a:visited, div.nav-controller a:link {
+    text-decoration: none;
+}
+div.nav-controller a:hover {
+    text-decoration: none;
+}
+#search {
+    display: block;
+    color: #101010;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 4px 4px 0px 4px;
+    border-radius: 4px;
+}
+#search:focus {
+    outline: none;
+}
+#search::-moz-placeholder {
+    color: #666666;
+}
+#search:focus::-moz-placeholder { 
+    color:transparent; 
+}
+#search::-webkit-input-placeholder {
+    color: #666666;
+    opacity: 0.6;
+}
+#search:focus::-webkit-input-placeholder { 
+    color:transparent;
+    background-color: #FFFFFF;
+}
+
+/* On smaller screens: */
+
+@media (max-width: 768px) {
+    #navigation {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+    nav.navbar-default {
+        background-color: transparent;
+        border-bottom: none;
+    }
+    #search {
+        width: 100%;
+    }
+    div.nav-controller { 
+        text-align: center;
+        margin-bottom: 12px;
+        padding-bottom: 6px;
+        border-bottom: 1px dashed #101010;
+    }
+}

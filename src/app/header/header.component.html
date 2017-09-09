@@ -1,0 +1,23 @@
+<nav class="navbar navbar-inverse navbar-toggleable-md bg-primary navbar-fixed-top">
+  <div class="collapse navbar-collapse show">
+    <div id="navigation" class="row">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <p>Home</p>
+        </li>
+        <li class="nav-item">
+          <form>
+            <input id="search" type="search" name="search" placeholder="Search">
+          </form>
+        </li>
+      </ul>
+      <div class="navbar-nav">
+        <button class="btn btn-danger" (click)="signinModal.show()">Sign In</button>
+        <button class="btn btn-danger" (click)="signupModal.show()">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<app-signin #signinModal></app-signin>
+<app-signup #signupModal></app-signup>
