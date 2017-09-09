@@ -13,14 +13,6 @@ export class MoviesService {
 
   constructor(private http: HttpClient, private db: AngularFireDatabase) { }
 
-  getMoviesFromFirebase(): FirebaseListObservable<IMovie[]> {
-    return this.db.list('/results', {
-      query: {
-        limitToLast: 12
-      }
-    });
-  }
-
   getDetailsForMovie(movieId: string) {
     const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.api_key}&append_to_response=videos`;
     return this.http
@@ -29,15 +21,21 @@ export class MoviesService {
         return res;
       });
   }
-  getMoviesByPopularity(): Observable<IMovie[]> {
-    return this.http
-      .get<IMovie[]>(this.apiUrl)
-      .map(res => {
-        return res;
-      });
-    // .catch((err: Response) => {
-    //   Observable.throw(err.statusText);
-    // });
+  getMoviesByPopularity(): Observable<IMovie[]> | FirebaseListObservable<IMovie[]> {
+    // Use this for internet and local json
+    // return this.http
+    //   .get<IMovie[]>(this.apiUrl)
+    //   .map(res => {
+    //     return res;
+    //   });
+
+
+    // Use this for firebase
+    return this.db.list('/results', {
+      query: {
+        limitToLast: 12
+      }
+    });
   }
   getAll() {
     return [
