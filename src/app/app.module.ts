@@ -14,6 +14,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { routes } from './app.router';
 
 import { MoviesService } from './movies/movies.service';
+import { DocumentRef } from './document.service';
 import { WindowRef } from './window.service';
 
 @NgModule({
@@ -33,6 +34,7 @@ import { WindowRef } from './window.service';
   ],
   providers: [
     MoviesService,
+    DocumentRef,
     WindowRef
   ],
   bootstrap: [AppComponent]

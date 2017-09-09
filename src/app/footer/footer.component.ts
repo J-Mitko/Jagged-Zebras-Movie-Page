@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { WindowRef } from './../window.service';
+import { DocumentRef } from '../document.service';
+import { WindowRef } from '../window.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,10 +9,8 @@ import { WindowRef } from './../window.service';
 })
 export class FooterComponent implements OnInit {
 
-  document: Document;
-
-  constructor(private winRef: WindowRef) {
-    this.document = document;
+  constructor(private winRef: WindowRef,
+  private docRef: DocumentRef) {
    }
 
   ngOnInit() {
@@ -24,15 +23,15 @@ export class FooterComponent implements OnInit {
   }
 
   private scrollHandler = () => {
-    if (!this.document.getElementsByClassName('hidden-btn')) {
+    if (!this.docRef.nativeDocument.getElementsByClassName('hidden-btn')) {
       return;
     }
     const scrollY = this.winRef.nativeWindow.pageYOffset;
-    const pageHeight = this.document.documentElement.scrollHeight;
+    const pageHeight = this.docRef.nativeDocument.documentElement.scrollHeight;
     let btns: any;
     let btnsArr = Array<any>();
     if (scrollY >= pageHeight * 52 / 100) {
-      btns = this.document.getElementsByClassName('hidden-btn');
+      btns = this.docRef.nativeDocument.getElementsByClassName('hidden-btn');
       btnsArr = Array.from(btns);
       btnsArr.forEach((btn) => {
         setTimeout(() => {

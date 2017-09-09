@@ -148,6 +148,9 @@ div.info-box p a:hover {
     div.info-box {
         height: 440px;
     }
+    div.picture-text {
+        font-size: 1.2em;
+    }
 }
 @media (max-width: 562px) {
     div.info-box {
@@ -160,6 +163,9 @@ div.info-box p a:hover {
     }
     div.info-box {
         height: 380px;
+    }
+    div.picture-text {
+        font-size: 1em;
     }
 }
 @media (max-width: 448px) {
