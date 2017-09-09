@@ -16,11 +16,6 @@
     opacity: 0.6;
     z-index: -1;
 }
-#about-screen {
-    background-color: #D3D3D3;
-    padding-top: 24px;
-    padding-bottom: 48px;
-}
 div.picture-text {
     position:absolute;
     top: 50%;
@@ -36,6 +31,47 @@ div.picture-text span {
     background-color: #404040;
     color: #FFFFFF;
 }
-#about-screen h1 {
+#about-title, #about-info {
+    background-color: #D3D3D3;
+}
+#about-title {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+#about-title h1 {
     text-align: center;
+    padding-bottom: 24px;
+    border-bottom: 1px dotted #101010;
+}
+div.info-box {
+    height: 480px;
+    margin-bottom: 24px;
+    background-color: #FFFFFF;
+    border: 1px dotted #636363;
+    border-radius: 6px;
+    transition: all 1.6s ease-in-out;
+}
+div.info-box img {
+    width: 60%;
+    display: block;
+    margin-top: 12px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 50%;
+    filter: blur(2px);
+    filter: grayscale(88%);
+    transition: all 1.6s ease-in-out;
+}
+div.info-box:hover {
+    transform: scale(1.04);
+    box-shadow: 8px 8px 8px #404040;
+}
+div.info-box:hover img {
+    filter: blur(0px);
+    filter: grayscale(0%);
+}
+div.info-box h2 {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bold;
 }
