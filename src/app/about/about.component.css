@@ -2,7 +2,7 @@
     position: relative;
     min-height: 400px;
 }
-#about-header:after{
+#about-header:after {
     content:'';
     background-image: url('../../assets/images/Cinema.jpg');
     background-size: contain;
@@ -44,8 +44,10 @@ div.picture-text span {
     border-bottom: 1px dotted #101010;
 }
 div.info-box {
-    height: 480px;
+    height: 420px;
     margin-bottom: 24px;
+    margin-right: 12px;
+    margin-left: 12px;
     background-color: #FFFFFF;
     border: 1px dotted #636363;
     border-radius: 6px;
@@ -74,4 +76,98 @@ div.info-box h2 {
     text-align: center;
     font-size: 1.6em;
     font-weight: bold;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #D0D0D0;
+}
+div.info-box h3 {
+    text-align: center;
+    font-size: 1.2em;
+}
+div.info-box p {
+    text-align: center;
+    font-size: 1em;
+}
+div.info-box p a {
+    text-decoration: none;
+    color: #333333;
+}
+
+/* On smaller screens: */
+
+@media (max-width: 1448px) {
+    div.info-box {
+        height: 400px;
+    }
+}
+@media (max-width: 1304px) {
+    div.info-box {
+        height: 380px;
+    }
+}
+@media (max-width: 1202px) {
+    div.info-box {
+        height: 360px;
+        margin-right: 6px;
+        margin-left: 6px;
+    }
+}
+@media (max-width: 1096px) {
+    div.info-box {
+        height: 340px;
+    }
+}
+@media (max-width: 886px) {
+    div.info-box {
+        margin-right: 2px;
+        margin-left: 2px;
+    }
+}
+@media (max-width: 768px) {
+    div.info-box {
+        height: 540px;
+        margin-right: 18px;
+        margin-left: 18px;
+    }
+    div.info-box img {
+        width: 54%;
+    }
+}
+@media (max-width: 712px) {
+    div.info-box {
+        height: 480px;
+    }
+}
+@media (max-width: 656px) {
+    div.info-box {
+        height: 440px;
+    }
+}
+@media (max-width: 562px) {
+    div.info-box {
+        height: 400px;
+    }
+}
+@media (max-width: 502px) {
+    #about-title h1 {
+        font-size: 2.4em;
+    }
+    div.info-box {
+        height: 380px;
+    }
+}
+@media (max-width: 448px) {
+    #about-title h1 {
+        font-size: 2em;
+    }
+    div.info-box {
+        height: 360px;
+    }
+}
+@media (max-width: 376px) {
+    #about-title h1 {
+        font-size: 1.6em;
+    }
+    div.info-box {
+        height: 320px;
+    }
 }
