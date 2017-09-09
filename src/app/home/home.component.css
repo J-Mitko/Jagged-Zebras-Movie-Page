@@ -1,0 +1,187 @@
+div, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Main page: */
+
+div.parallax {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+}
+div.first-pic {
+    filter: blur(2px);
+    filter: grayscale(88%);
+}
+div.second-pic {
+    filter: blur(1.2px);
+    filter: grayscale(12%);
+}
+div.picture-text {
+    position:absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.6em;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+a.ptext {
+    background-color: #101010;
+    color: #FFFFFF;
+    padding: 20px;
+    transition: 2.4s all;
+        -webkit-transition: 2.4s all;
+	    -moz-transition: 2.4s all;
+	    -o-transition: 2.4s all;
+}
+a.ptext:active, a.ptext:visited, a.ptext:link {
+    text-decoration: none;
+}
+a.ptext:hover {
+    color: #F53F1A;
+    transition: 2.4s all;
+        -webkit-transition: 2.4s all;
+	    -moz-transition: 2.4s all;
+	    -o-transition: 2.4s all;
+}
+a.ptext::selection {
+    background-color: #404040;
+}
+#main-section, #down-section, #about-section {
+    height: auto;
+    background-color: #D3D3D3;
+}
+#main-section h1, #down-section h1 {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-top: 24px;
+    font-size: 2em;
+    letter-spacing: 4px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #666666;
+}
+#main-section p, #down-section p {
+    text-align: center;
+    margin-right: 24px;
+    margin-left: 24px;
+    padding-top: 24px;
+    padding-bottom: 72px;
+    border-top: 1px dotted #101010;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#about-section {
+    padding-bottom: 128px;
+}
+div.window {
+    position: relative;
+    width: 460px;
+    height: 460px;
+    margin-right: auto;
+    margin-left: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    opacity: 0.8;
+    filter: blur(2px);
+    filter: grayscale(88%);
+}
+div.window-title {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.window-title a.hidden-btn {
+    opacity: 0;
+}
+div.window-title a.is-showing {
+    opacity: 1;
+    transition: opacity 3.6s ease-in-out, color 1.8s;
+        -webkit-transition: opacity 3.6s ease-in-out, color 1.8s;
+	    -moz-transition: opacity 3.6s ease-in-out, color 1.8s;
+        -o-transition: opacity 3.6s ease-in-out, color 1.8s;
+}
+div.window-title a {
+    color: #FFFFFF;
+    background-color: #101010;
+    font-size: 2em;
+    border: 4px double #FFFFFF;
+    padding: 8px 20px;
+}
+div.window-title a:active {
+    text-decoration: none;
+}
+div.window-title a:visited, div.window-title a:link {
+    text-decoration: none;
+}
+div.window-title a:hover {
+    text-decoration: none;
+    color: #F53F1A;
+}
+
+/* On smaller screens: */
+
+@media only screen and (max-width: 824px) {
+    div.parallax { 
+        background-attachment: scroll;
+    }
+    div.parallax {
+        min-height: 480px;
+    }
+    #about-section {
+        padding-bottom: 96px;
+    }
+}
+
+@media (max-width: 724px) {
+    div.picture-text {
+        font-size: 1.2em;
+    }
+}
+@media (max-width: 642px) {
+    div.picture-text {
+        font-size: 1em;
+    }
+    div.parallax {
+        min-height: 420px;
+    }
+}
+@media (max-width: 572px) {
+    div.picture-text {
+        font-size: 0.8em;
+    }
+    a.ptext { 
+        padding: 12px;
+    }
+    div.window {
+        width: 360px;
+        height: 360px;
+        background-size: 32%;
+    }
+}
+@media (max-width: 502px) {
+    a.ptext {
+        background-color: inherit;
+    }
+    #about-section {
+        padding-bottom: 76px;
+    }
+    div.parallax {
+        min-height: 360px;
+    }
+}
