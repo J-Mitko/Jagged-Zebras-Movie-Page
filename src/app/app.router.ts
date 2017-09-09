@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { MoviesGridResolverService } from './movies/movie-resolvers/movies-grid-resolver.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const router: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -13,7 +14,10 @@ export const router: Routes = [
             movies: MoviesGridResolverService
         }
     },
-    { path: 'about', component: AboutComponent }
+    { path: 'about', component: AboutComponent },
+    { path: '**', redirectTo: '404' },
+    { path: '404', component: NotFoundComponent }
 ];
+
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);
