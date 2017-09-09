@@ -9,16 +9,19 @@ import { SafePipe } from '../../shared/safe.pipe';
   styleUrls: ['./movie-thumbnail.component.css']
 })
 export class MovieThumbnailComponent implements OnInit {
-  private poster = 'http://image.tmdb.org/t/p/w300';
+
+  private key: string;
+  private poster: string;
   @Input() movie: IMovie;
 
   constructor(private route: ActivatedRoute, public sanitizer: SafePipe) { }
 
   ngOnInit() {
-    console.log(this.movie.videos);
+    this.key = this.movie.key;
+    this.poster = `http://i3.ytimg.com/vi/${this.key}/maxresdefault.jpg`;
   }
 
   posterUrl() {
-    return this.poster + this.movie.poster_path;
+    return this.poster;
   }
 }

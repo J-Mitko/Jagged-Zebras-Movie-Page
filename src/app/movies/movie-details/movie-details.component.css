@@ -13,6 +13,32 @@
     box-shadow: 10px 10px 14px #202020;
 }
 
+#movie-title {
+    margin-top: 0;
+    color: #666666;
+    text-align: center;
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding-bottom: 12px;
+    border-bottom: 1px dotted #202020;
+}
+h3 {
+    font-size: 1em;
+    font-weight: bold;
+    padding-bottom: 12px;
+    border-bottom: 1px dotted #202020;
+}
+h3 span {
+    font-weight: normal;
+}
+
+#overview {
+    padding-top: 12px;
+}
+
 /* On smaller screens: */
 
 @media (max-width: 642px) {
