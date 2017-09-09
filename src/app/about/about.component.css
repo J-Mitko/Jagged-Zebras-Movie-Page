@@ -1,7 +1,40 @@
+#about-header {
+    position: relative;
+    min-height: 400px;
+}
+#about-header:after{
+    content:'';
+    background-image: url('../../assets/images/Cinema.jpg');
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top:0;
+    left:0;
+    filter: blur(2px);
+    filter: grayscale(88%);
+    opacity: 0.6;
+    z-index: -1;
+}
 #about-screen {
     background-color: #D3D3D3;
     padding-top: 24px;
     padding-bottom: 48px;
+}
+div.picture-text {
+    position:absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.6em;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+div.picture-text span {
+    display: inline-block;
+    padding: 20px;
+    background-color: #404040;
+    color: #FFFFFF;
 }
 #about-screen h1 {
     text-align: center;
