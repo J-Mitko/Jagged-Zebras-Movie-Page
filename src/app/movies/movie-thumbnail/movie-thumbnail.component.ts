@@ -1,5 +1,4 @@
 import { IMovie } from './../movie.model';
-// import { SafePipe } from './../../shared/safe.pipe';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params, Router, UrlSegment } from '@angular/router';
 import { SafePipe } from '../../shared/safe.pipe';
@@ -16,6 +15,7 @@ export class MovieThumbnailComponent implements OnInit {
   constructor(private route: ActivatedRoute, public sanitizer: SafePipe) { }
 
   ngOnInit() {
+    console.log(this.movie.videos);
   }
 
   posterUrl() {
