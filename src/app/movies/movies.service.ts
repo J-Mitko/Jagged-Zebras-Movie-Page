@@ -21,6 +21,15 @@ export class MoviesService {
         return res;
       });
   }
+
+  searchForMovieByName(name: string): Observable<IMovie[]> {
+    const address = 'https://api.themoviedb.org/3/search/movie?api_key=28c57aa94fd0201c8fa6edc867cd6815&query=';
+    const movieName = name.replace(' ', '+');
+
+    return this.http
+      .get<IMovie[]>(address + name);
+  }
+
   getMoviesByPopularity(): Observable<IMovie[]> | FirebaseListObservable<IMovie[]> {
     // Use this for internet and local json
     // return this.http

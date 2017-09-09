@@ -6,7 +6,9 @@
       </div>
       <div class="col-sm-6">
         <form>
-          <input id="search" type="search" name="search" placeholder="Search">
+          <input id="search" type="search" name="search" placeholder="Search" #searchMovie
+              (keyup.enter)="getMovies(searchMovie.value)"
+              (blur)="getMovies(searchMovie.value); searchMovie.value = '' ">
         </form>
       </div>
       <app-signin></app-signin>

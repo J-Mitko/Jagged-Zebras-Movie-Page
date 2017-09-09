@@ -1,3 +1,4 @@
+import { SearchMovieResolverService } from './movie-resolvers/search-movie-resolver.service';
 import { MoviesGridResolverService } from './movie-resolvers/movies-grid-resolver.service';
 import { MovieThumbnailComponent } from './movie-thumbnail/movie-thumbnail.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
@@ -15,6 +16,13 @@ const routes: Routes = [
     }
   },
   {
+    path: 'movies/search/:name',
+    component: MovieGridComponent,
+    resolve: {
+      movies: SearchMovieResolverService
+    }
+  },
+  {
     path: 'movie/details/:id',
     component: MovieDetailsComponent,
     resolve: {
@@ -26,6 +34,10 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [MovieDetailResolverService, MoviesGridResolverService]
+  providers: [
+    MovieDetailResolverService,
+    MoviesGridResolverService,
+    SearchMovieResolverService
+  ]
 })
 export class MoviesRoutingModule { }
