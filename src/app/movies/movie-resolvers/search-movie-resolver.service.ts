@@ -20,7 +20,6 @@ export class SearchMovieResolverService implements Resolve<IMovie[]> {
 
     return this.movieService.searchForMovieByName(queryString)
       .map(res => {
-        console.log(res);
         if (res) {
           return res['results'];
         } else {
