@@ -11,7 +11,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class MovieGridComponent implements OnInit {
 
-  movies: FirebaseListObservable<IMovie[]>;
+  movies: FirebaseListObservable<IMovie[]> | IMovie[];
   document: Document;
   window: Window;
 
@@ -24,16 +24,12 @@ export class MovieGridComponent implements OnInit {
   }
 
   ngOnInit() {
-    // I needed get files from Firebase
-    this.movies = this.movieService.getMoviesFromFirebase();
-
-    // Uncomment to get files from local json or internet!
-    // this.route.data.subscribe((data: { movies: IMovie[] }) => {
-    //   this.movies = data.movies.splice(0, 12);
-    // }, (err: Response) => {
-    //   console.log('error in movies grid component');
-    //   console.log(err.statusText);
-    // });
+    this.route.data.subscribe((data: { movies: IMovie[] }) => {
+      this.movies = data.movies.splice(0, 12);
+    }, (err: Response) => {
+      console.log('error in movies grid component');
+      console.log(err.statusText);
+    });
   }
 
   @HostListener('window:scroll', ['$event'])
