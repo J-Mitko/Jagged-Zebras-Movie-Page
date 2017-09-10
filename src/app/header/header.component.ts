@@ -12,6 +12,7 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
   @ViewChild('signupModal') signupModal: SignupComponent;
   @ViewChild('signinModal') signinModal: SigninComponent;
