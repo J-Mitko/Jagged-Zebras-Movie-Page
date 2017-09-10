@@ -1,14 +1,19 @@
+<div id="screen-header">
+</div>
+<section id="main-section">
+  <h1>{{movie.title}}</h1>
+  <p>{{movie.overview}}</p>
+</section>
 <div id="main-screen" class="container-fluid">
   <div class="row">
     <div class="col-sm-6">
       <iframe id="screen" allowfullscreen [src]="youtubeUrl | safepipe"></iframe>
     </div>
     <div class="col-sm-6">
-      <h2 id="movie-title">{{movie.title}}</h2>
       <h3>
         Genres:
         <span *ngFor="let genre of movie.genres">{{genre.name}} </span>
       </h3>
-      <p id="overview">{{movie.overview}}</p>
     </div>
+  </div>
 </div>
