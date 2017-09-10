@@ -25,7 +25,6 @@ export class AuthGuard implements CanActivate {
                this.toast.showWarning('Access denied. You are not logged in!')
                this.router.navigate(['/home']);
              }
-         })
-
+         });
   }
 }

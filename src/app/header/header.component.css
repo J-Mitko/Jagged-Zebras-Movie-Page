@@ -8,15 +8,20 @@
     background-repeat: repeat-x, repeat;
 }
 div.nav-controller {
-    padding-top: 4px;
+    width: 84%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(150, 150, 150, 0.4);
+    padding-top: 6px;
+    padding-bottom: 6px;
     font-size: 1.2em;
     letter-spacing: 1px;
-}
-div.nav-controller:first-child {
-    padding-left: 40px;
+    border-radius: 4px;
 }
 div.nav-controller a {
+    display: block;
     color: #E4F0ED;
+    text-align: center;
 }
 div.nav-controller a:active, div.nav-controller a:visited, div.nav-controller a:link {
     text-decoration: none;
@@ -27,10 +32,10 @@ div.nav-controller a:hover {
 #search {
     display: block;
     color: #101010;
-    width: 60%;
+    width: 80%;
     margin-right: auto;
     margin-left: auto;
-    padding: 4px 4px 0px 4px;
+    padding: 6px 4px 4px 4px;
     border-radius: 4px;
 }
 #search:focus {
@@ -51,7 +56,39 @@ div.nav-controller a:hover {
     background-color: #FFFFFF;
 }
 
+button.sign-button {
+    width: 80%;
+    background-color: rgba(150, 150, 150, 0.4);
+    color: #E4F0ED;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    padding-top: 2px;
+    transition: all 1.2s ease-in-out;
+}
+button.sign-button:focus {
+    outline: none;
+}
+button.sign-button:hover {
+    width: 84%;
+    background-color: rgba(200, 200, 200, 0.6);
+    color: #F53F1A;
+}
+
 /* On smaller screens: */
+
+@media (max-width: 1186px) {
+    div.nav-controller, button.sign-button { 
+        font-size: 1em;
+    }
+    button.sign-button {
+        width: 88%;
+        padding-top: 6px;
+    }
+    button.sign-button:hover {
+        width: 92%;
+    }
+
+}
 
 @media (max-width: 768px) {
     #navigation {

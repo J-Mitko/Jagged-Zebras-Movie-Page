@@ -1,3 +1,4 @@
+import { DocumentRef } from './document.service';
 import { WindowRef } from './window.service';
 import { SafePipe } from './safe.pipe';
 import { NgModule, ModuleWithProviders } from '@angular/core';
@@ -17,7 +18,7 @@ import { RouterModule } from '@angular/router';
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
-      providers: [ SafePipe, WindowRef ],
+      providers: [ SafePipe, WindowRef, DocumentRef ],
       ngModule: SharedModule
     };
   }

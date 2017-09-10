@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { MovieGridComponent } from '../movies/movie-grid/movie-grid.component';
+import { MovieThumbnailComponent } from '../movies/movie-thumbnail/movie-thumbnail.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +10,11 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [
+        HomeComponent,
+        MovieGridComponent,
+        MovieThumbnailComponent
+       ]
     })
     .compileComponents();
   }));

@@ -12,6 +12,7 @@ import { NotificationService } from '../core/notification.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
   @ViewChild('signupModal') signupModal: SignupComponent;
   @ViewChild('signinModal') signinModal: SigninComponent;

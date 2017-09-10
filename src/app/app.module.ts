@@ -27,8 +27,6 @@ import { routes } from './app.router';
 
 import { MoviesService } from './movies/movies.service';
 import { NotificationService } from './core/notification.service';
-import { DocumentRef } from './document.service';
-import { WindowRef } from './shared/window.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +54,6 @@ import { WindowRef } from './shared/window.service';
   providers: [
     MoviesService,
     NotificationService,
-    DocumentRef
   ],
   bootstrap: [AppComponent]
 })
