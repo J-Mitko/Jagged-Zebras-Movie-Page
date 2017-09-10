@@ -21,7 +21,7 @@ export class SearchMovieResolverService implements Resolve<IMovie[]> {
     return this.movieService.searchForMovieByName(queryString)
       .map(res => {
         if (res) {
-          return res['results'];
+          return res;
         } else {
           this.router.navigate(['/']);
           return null;

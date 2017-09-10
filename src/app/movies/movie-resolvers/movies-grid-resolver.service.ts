@@ -18,7 +18,6 @@ export class MoviesGridResolverService implements Resolve<IMovie[]> {
     return this.movieService.getMoviesByPopularity()
       .take(1)
       .map(res => {
-        // res = res[1] || res['results'];
         if (res) {
           return res;
         } else {
