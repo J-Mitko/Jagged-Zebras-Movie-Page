@@ -1,9 +1,10 @@
 <div class="fb-profile" style="background-image: url('../../assets/images/Movie_Camera.jpeg')">
 </div>
 <div class="fb-profile-container">
-        <img class="fb-image-profile thumbnail" [src]="auth.currentUserDisplayImg" alt="Profile image example">
-        <h1 id="username">Welcome, {{auth.currentUserDisplayName}}</h1>
-    </div>
+    <img class="fb-image-profile thumbnail" [src]="auth.currentUserDisplayImg" alt="Profile image example">
+    <div (click)="this.close()" class="x-button">x</div>
+    <h1 id="username">Welcome, {{auth.currentUserDisplayName}}</h1>
+</div>
 <div style="opacity: 0.8">
     <app-movie-grid></app-movie-grid>
 </div>
