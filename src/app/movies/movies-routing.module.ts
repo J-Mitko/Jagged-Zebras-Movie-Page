@@ -1,3 +1,4 @@
+import { ExplorerComponent } from './explorer/explorer.component';
 import { SearchComponent } from './search/search.component';
 import { SearchMovieResolverService } from './movie-resolvers/search-movie-resolver.service';
 import { MoviesGridResolverService } from './movie-resolvers/movies-grid-resolver.service';
@@ -11,7 +12,7 @@ import { MovieDetailResolverService } from './movie-resolvers/movie-detail-resol
 const routes: Routes = [
   {
     path: 'movies',
-    component: MovieGridComponent,
+    component: ExplorerComponent,
     resolve: {
       movies: MoviesGridResolverService
     }
