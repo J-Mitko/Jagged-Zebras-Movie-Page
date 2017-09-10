@@ -36,6 +36,7 @@ export class MovieGridComponent implements OnInit {
     private router: Router) {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
+        this.page = 1;
         this.ngOnInit();
       }
     });
