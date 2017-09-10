@@ -52,7 +52,7 @@ export class AuthService {
     } else if (this.currentUserAnonymous) {
       return 'Anonymous';
     } else {
-      return this.authState['displayName'] || 'User without a Name';
+      return this.authState['displayName'] || this.authState['email'];
     }
   }
   // Returns current user display img or Guest
