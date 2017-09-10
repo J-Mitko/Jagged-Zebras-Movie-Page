@@ -37,7 +37,7 @@ import { NotificationService } from './core/notification.service';
 
     HomeComponent,
     NotFoundComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

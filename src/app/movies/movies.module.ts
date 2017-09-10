@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesService } from './movies.service';
@@ -12,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from './../../environments/environment';
 import { AngularFireModule } from 'angularfire2';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   imports: [
@@ -20,12 +22,14 @@ import { AngularFireModule } from 'angularfire2';
     HttpClientModule,
     SharedModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    NgbModule.forRoot()
   ],
   declarations: [
     MovieGridComponent,
     MovieThumbnailComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    SearchComponent
   ],
   exports: [MovieGridComponent, MovieThumbnailComponent ],
   providers: []
