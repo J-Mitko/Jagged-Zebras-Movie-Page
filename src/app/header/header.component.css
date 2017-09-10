@@ -21,10 +21,16 @@ div h5 {
 div h5:hover {
     color: #F53F1A;
 }
-div span {
+div h5:hover a.user-profile-link {
+    color: #F53F1A;
+}
+div a.user-profile-link {
     display: block;
-    padding-top: 2px;
+    text-decoration: none;
     text-align: center;
+    color: #E4F0ED;
+    padding-top: 2px;
+    transition: all 1.2s ease-in-out;
 }
 div.nav-controller {
     width: 84%;

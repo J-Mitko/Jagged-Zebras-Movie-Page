@@ -29,7 +29,7 @@
       </div>
       <div *ngIf="auth.currentUser" class="col-sm-2">
         <h5>Welcome,
-          <span>{{auth.currentUserDisplayName}}</span>
+          <a class="user-profile-link" routerLink="/profile">{{auth.currentUserDisplayName}}</a>
         </h5>
       </div>
       <div *ngIf="auth.currentUser" class="col-sm-2">
