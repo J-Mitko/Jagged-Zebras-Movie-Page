@@ -54,7 +54,16 @@ export class AuthService {
       return this.authState['displayName'] || 'User without a Name';
     }
   }
-
+  // Returns current user display img or Guest
+  get currentUserDisplayImg(): string {
+    if (!this.authState) {
+      return '../../assets/images/default_photo.jpg';
+    } else if (this.currentUserAnonymous) {
+      return '../../assets/images/default_photo.jpg';
+    } else {
+      return this.authState['photoURL'] || '../../assets/images/default_photo.jpg';
+    }
+  }
   //// Social Auth ////
 
   githubLogin() {

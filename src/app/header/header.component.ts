@@ -5,7 +5,7 @@ import { ModalDirective, ModalModule } from 'ngx-bootstrap/ng2-bootstrap';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { AuthService } from '../core/auth.service';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { NotificationService } from '../core/notification.service';
 
 @Component({
   selector: 'app-header',
@@ -19,11 +19,9 @@ export class HeaderComponent implements OnInit {
   constructor(
     private movieService: MoviesService,
     private router: Router,
-    public toastr: ToastsManager,
+    public notification: NotificationService,
     public auth: AuthService,
-    private viewContainerRef: ViewContainerRef
   ) {
-    this.toastr.setRootViewContainerRef(viewContainerRef);
   }
 
   getMovies(query: string) {
@@ -35,6 +33,6 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.auth.signOut();
-    this.toastr.info('Logged out', 'Info');
+    this.notification.showInfo('Logged out');
   }
 }

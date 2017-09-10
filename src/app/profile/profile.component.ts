@@ -8,6 +8,8 @@ import { AuthService } from '../core/auth.service';
 })
 export class ProfileComponent implements OnInit {
 
+  username: '';
+
   constructor(public auth: AuthService) { }
 
   ngOnInit() {

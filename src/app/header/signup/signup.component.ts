@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap';
 import { AuthService } from '../../core/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { NotificationService } from '../../core/notification.service';
 
 @Component({
   selector: 'app-signup',
@@ -31,9 +31,8 @@ export class SignupComponent implements OnInit {
     }
   };
 
-  constructor(public toastr: ToastsManager, vcr: ViewContainerRef,
+  constructor(public notification: NotificationService,
     private fb: FormBuilder, public auth: AuthService) {
-    this.toastr.setRootViewContainerRef(vcr);
     this.buildForm();
   }
 
@@ -68,20 +67,20 @@ export class SignupComponent implements OnInit {
 
   signInWithGoogle(): void {
     this.auth.googleLogin()
-    .then(() => { this.hide(); this.toastr.success('Your are logged in!', 'Success'); })
-      .catch((err) => this.toastr.error(err.message, 'Error'));
+    .then(() => { this.hide(); this.notification.showSuccess('Your are logged in!'); })
+      .catch((err) => this.notification.showError(err.message));
   }
 
   signInWithFacebook(): void {
     this.auth.facebookLogin()
-      .then(() => { this.hide(); this.toastr.success('Your are logged in!', 'Success'); })
-      .catch((err) => this.toastr.error(err.message, 'Error'));
+    .then(() => { this.hide(); this.notification.showSuccess('Your are logged in!'); })
+    .catch((err) => this.notification.showError(err.message));
   }
 
   signup(): void {
     this.auth.emailSignUp(this.userSignUpFrom.value['email'], this.userSignUpFrom.value['password'])
-      .then(() => { this.hide(); this.toastr.success('Your are logged in!', 'Success'); })
-      .catch((err) => this.toastr.error(err.message, 'Error'));
+    .then(() => { this.hide(); this.notification.showSuccess('Your are logged in!'); })
+    .catch((err) => this.notification.showError(err.message));
   }
 
   // Updates validation state on form changes.

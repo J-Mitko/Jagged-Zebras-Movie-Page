@@ -7,12 +7,17 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { MoviesGridResolverService } from './movies/movie-resolvers/movies-grid-resolver.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ProfileComponent } from './profile/profile.component';
 
 export const router: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     {
         path: 'home', component: HomeComponent, resolve: {
             movies: MoviesGridResolverService
+        }
+    },
+    { path: 'profile', component: ProfileComponent, resolve: {
+        movies: MoviesGridResolverService
         }
     },
     { path: 'about', component: AboutComponent },

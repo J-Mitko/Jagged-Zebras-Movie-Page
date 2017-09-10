@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap/ng2-bootstrap';
 import { AuthService } from '../../core/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { NotificationService } from '../../core/notification.service';
 
 @Component({
   selector: 'app-signin',
@@ -32,9 +32,8 @@ export class SigninComponent implements OnInit {
     }
   };
 
-  constructor(public toastr: ToastsManager, vcr: ViewContainerRef,
+  constructor(public notification: NotificationService,
     private fb: FormBuilder, private auth: AuthService) {
-    this.toastr.setRootViewContainerRef(vcr);
     this.buildForm();
   }
 
@@ -69,20 +68,20 @@ export class SigninComponent implements OnInit {
 
   signInWithGoogle(): void {
     this.auth.googleLogin()
-    .then(() => { this.hide(); this.toastr.success('Your are logged in!', 'Success'); })
-      .catch((err) => this.toastr.error(err.message, 'Error'));
+    .then(() => { this.hide(); this.notification.showSuccess('Your are logged in!'); })
+    .catch((err) => this.notification.showError(err.message));
   }
 
   signInWithFacebook(): void {
     this.auth.facebookLogin()
-    .then(() => { this.hide(); this.toastr.success('Your are logged in!', 'Success'); })
-      .catch((err) => this.toastr.error(err.message, 'Error'));
+    .then(() => { this.hide(); this.notification.showSuccess('Your are logged in!'); })
+    .catch((err) => this.notification.showError(err.message));
   }
 
   login(): void {
     this.auth.emailLogin(this.userSignInFrom.value['email'], this.userSignInFrom.value['password'])
-    .then(() => { this.hide(); this.toastr.success('Your are logged in!', 'Success'); })
-      .catch((err) => this.toastr.error('User not found', 'Error'));
+    .then(() => { this.hide(); this.notification.showSuccess('Your are logged in!'); })
+    .catch((err) => this.notification.showError(err.message));
   }
 
   onValueChanged(data?: any) {

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component , ViewContainerRef} from '@angular/core';
 import { WindowRef } from './shared/window.service';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,9 @@ import { WindowRef } from './shared/window.service';
 
 export class AppComponent {
 
-  constructor(private winRef: WindowRef) { }
+  constructor(private winRef: WindowRef,public toastr: ToastsManager, public vcr: ViewContainerRef) {
+    this.toastr.setRootViewContainerRef(vcr);
+   }
 
   onDeactivate() {
     this.winRef.nativeWindow.scrollTo(0, 0);

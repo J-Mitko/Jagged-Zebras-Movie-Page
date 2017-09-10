@@ -2,7 +2,7 @@ import { IMovie } from '../movie.model';
 import { MoviesService } from '../movies.service';
 import { DocumentRef } from '../../document.service';
 import { WindowRef } from '../../shared/window.service';
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';
 
@@ -13,12 +13,13 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class MovieGridComponent implements OnInit {
 
+  @Input() showAllFlag = false;
   movies: FirebaseListObservable<IMovie[]> | IMovie[];
 
   constructor(private movieService: MoviesService,
-  private route: ActivatedRoute,
-  private winRef: WindowRef,
-  private docRef: DocumentRef) {
+    private route: ActivatedRoute,
+    private winRef: WindowRef,
+    private docRef: DocumentRef) {
   }
 
   ngOnInit() {
@@ -28,12 +29,47 @@ export class MovieGridComponent implements OnInit {
       console.log('error in movies grid component');
       console.log(err.statusText);
     });
+    // if (this.showAllFlag) {
+    //   this.showAll();
+    // }
   }
 
   @HostListener('window:scroll', ['$event'])
   onScroll(ev) {
     this.winRef.nativeWindow.requestAnimationFrame(this.scrollHandler);
   }
+
+  // private showAll() {
+  //   console.log('show all');
+  //   if (!this.docRef.nativeDocument.getElementsByClassName('hidden-img')) {
+  //     return;
+  //   }
+  //   console.log('show all');
+  //   let imgs: any;
+  //   let imgsArr: Array<any>;
+  //   let spans: any;
+  //   let spansArr: Array<any>;
+
+  //   imgs = this.docRef.nativeDocument.getElementsByClassName('hidden-img');
+  //   console.log(imgs);
+  //   imgsArr = Array.from(imgs);
+  //   console.log(imgsArr);
+  //   imgsArr.forEach((img, i) => {
+  //     setTimeout(() => {
+  //       img.classList.remove('hidden-img');
+  //       img.classList.add('is-showing');
+  //     }, 0 * ((i + 1) * 2));
+
+  //     spans = this.docRef.nativeDocument.getElementsByClassName('hidden-title');
+  //     spansArr = Array.from(spans);
+  //     spansArr.forEach((span, j) => {
+  //       setTimeout(() => {
+  //         span.classList.remove('hidden-title');
+  //         span.classList.add('title');
+  //       }, 0 * ((j + 1) * 2));
+  //     });
+  //   });
+  // }
 
   private scrollHandler = () => {
     if (!this.docRef.nativeDocument.getElementsByClassName('hidden-img')) {

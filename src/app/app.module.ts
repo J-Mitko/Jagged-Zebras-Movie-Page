@@ -26,6 +26,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { routes } from './app.router';
 
 import { MoviesService } from './movies/movies.service';
+import { NotificationService } from './core/notification.service';
 import { DocumentRef } from './document.service';
 import { WindowRef } from './shared/window.service';
 
@@ -54,6 +55,7 @@ import { WindowRef } from './shared/window.service';
   ],
   providers: [
     MoviesService,
+    NotificationService,
     DocumentRef
   ],
   bootstrap: [AppComponent]
