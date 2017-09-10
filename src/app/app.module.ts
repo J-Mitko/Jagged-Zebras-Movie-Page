@@ -1,5 +1,5 @@
 import { MoviesModule } from './movies/movies.module';
-import { HeaderComponent } from './header/header.component';
+import { HeaderModule } from './header/header.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap/ng2-bootstrap';
@@ -13,23 +13,32 @@ export const firebase = environment.firebase;
 
 // Core
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
-import { HeaderModule } from './header/header.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
-
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ProfileComponent } from './profile/profile.component';
 
 import { routes } from './app.router';
-import { SharedModule } from './shared/shared.module';
-import { ProfileComponent } from './profile/profile.component';
+
+import { MoviesService } from './movies/movies.service';
+import { DocumentRef } from './document.service';
+import { WindowRef } from './window.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     AboutComponent,
-    ProfileComponent
+    ProfileComponent,
 
+    HomeComponent,
+    NotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +53,9 @@ import { ProfileComponent } from './profile/profile.component';
     ToastModule.forRoot()
   ],
   providers: [
+    MoviesService,
+    DocumentRef,
+    WindowRef
   ],
   bootstrap: [AppComponent]
 })

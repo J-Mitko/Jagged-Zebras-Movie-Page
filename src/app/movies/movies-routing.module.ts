@@ -8,7 +8,7 @@ import { MovieDetailResolverService } from './movie-resolvers/movie-detail-resol
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'movies',
     component: MovieGridComponent,
     resolve: {
       movies: MoviesGridResolverService

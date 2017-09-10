@@ -2,6 +2,7 @@ export interface IMovie {
     belongs_to_collection: object;
     genres: object[];
     id: number;
+    key: string;
     imbd_id: string;
     original_title: string;
     overview: string;

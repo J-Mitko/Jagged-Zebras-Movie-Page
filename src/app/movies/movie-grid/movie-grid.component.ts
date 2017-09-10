@@ -1,5 +1,7 @@
-import { IMovie } from './../movie.model';
-import { MoviesService } from './../movies.service';
+import { IMovie } from '../movie.model';
+import { MoviesService } from '../movies.service';
+import { DocumentRef } from '../../document.service';
+import { WindowRef } from '../../window.service';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';
@@ -12,15 +14,11 @@ import { FirebaseListObservable } from 'angularfire2/database';
 export class MovieGridComponent implements OnInit {
 
   movies: FirebaseListObservable<IMovie[]> | IMovie[];
-  document: Document;
-  window: Window;
 
-  constructor(
-    private movieService: MoviesService,
-    private route: ActivatedRoute
-  ) {
-    this.document = document;
-    this.window = window;
+  constructor(private movieService: MoviesService,
+  private route: ActivatedRoute,
+  private winRef: WindowRef,
+  private docRef: DocumentRef) {
   }
 
   ngOnInit() {
@@ -34,21 +32,21 @@ export class MovieGridComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(ev) {
-    this.window.requestAnimationFrame(this.scrollHandler);
+    this.winRef.nativeWindow.requestAnimationFrame(this.scrollHandler);
   }
 
   private scrollHandler = () => {
-    if (!this.document.getElementsByClassName('hidden-img')) {
+    if (!this.docRef.nativeDocument.getElementsByClassName('hidden-img')) {
       return;
     }
-    const scrollY = this.window.pageYOffset;
+    const scrollY = this.winRef.nativeWindow.pageYOffset;
     let imgs: any;
     let imgsArr: Array<any>;
     let spans: any;
     let spansArr: Array<any>;
 
     if (scrollY >= 360) {
-      imgs = this.document.getElementsByClassName('hidden-img');
+      imgs = this.docRef.nativeDocument.getElementsByClassName('hidden-img');
       imgsArr = Array.from(imgs);
       imgsArr.forEach((img, i) => {
         setTimeout(() => {
@@ -56,7 +54,7 @@ export class MovieGridComponent implements OnInit {
           img.classList.add('is-showing');
         }, 100 * ((i + 1) * 2));
 
-        spans = this.document.getElementsByClassName('hidden-title');
+        spans = this.docRef.nativeDocument.getElementsByClassName('hidden-title');
         spansArr = Array.from(spans);
         spansArr.forEach((span, j) => {
           setTimeout(() => {

@@ -27,7 +27,8 @@ import { AngularFireModule } from 'angularfire2';
     MovieThumbnailComponent,
     MovieDetailsComponent
   ],
-  providers: [MoviesService]
+  exports: [MovieGridComponent, MovieThumbnailComponent ],
+  providers: []
 })
 export class MoviesModule { }
 

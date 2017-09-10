@@ -1,4 +1,5 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
+import { WindowRef } from './window.service';
 
 @Component({
   selector: 'app-root',
@@ -8,38 +9,10 @@ import { Component, HostListener } from '@angular/core';
 
 export class AppComponent {
 
-  title: string;
-  document: Document;
-  window: Window;
+  constructor(private winRef: WindowRef) { }
 
-  constructor() {
-    this.title = 'The Jagged Zebras Movie Page';
-    this.document = document;
-    this.window = window;
+  onDeactivate() {
+    this.winRef.nativeWindow.scrollTo(0, 0);
   }
 
-  @HostListener('window:scroll', ['$event'])
-
-  onScroll(ev) {
-    this.window.requestAnimationFrame(this.scrollHandler);
-  }
-
-  private scrollHandler = () => {
-    if (!this.document.getElementsByClassName('hidden-btn')) {
-      return;
-    }
-    const scrollY = this.window.pageYOffset;
-    let btns: any;
-    let btnsArr = Array<any>();
-    if (scrollY >= 1960) {
-      btns = this.document.getElementsByClassName('hidden-btn');
-      btnsArr = Array.from(btns);
-      btnsArr.forEach((btn) => {
-        setTimeout(() => {
-          btn.classList.remove('hidden-btn');
-          btn.classList.add('is-showing');
-        }, 0);
-      });
-    }
-  }
 }
