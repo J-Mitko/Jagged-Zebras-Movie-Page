@@ -1,0 +1,40 @@
+#explore-header {
+    min-height: 300px;
+    /* background-image: url('../../../assets/images/Empty_Cinema.jpg');
+    background-size: contain;
+    filter: blur(2px);
+    filter: grayscale(88%);
+    opacity: 0.6; */
+    background: #404040;
+}
+
+div.picture-text {
+    position:absolute;
+    top: 15%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.6em;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+div.picture-text span {
+    display: inline-block;
+    padding: 20px;
+    background-color: #404040;
+    color: #FFFFFF;
+}
+
+/* On smaller screens: */
+
+@media (max-width: 705px) {
+    div.picture-text {
+        font-size: 1.2em;
+        top: 25%;
+    }
+}
+
+@media (max-width: 502px) {
+    div.picture-text {
+        font-size: 1em;
+    }
+}

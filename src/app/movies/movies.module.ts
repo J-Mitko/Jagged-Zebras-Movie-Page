@@ -14,6 +14,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from './../../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { SearchComponent } from './search/search.component';
+import { ExplorerComponent } from './explorer/explorer.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { SearchComponent } from './search/search.component';
     MovieGridComponent,
     MovieThumbnailComponent,
     MovieDetailsComponent,
-    SearchComponent
+    SearchComponent,
+    ExplorerComponent
   ],
   exports: [MovieGridComponent, MovieThumbnailComponent ],
   providers: []

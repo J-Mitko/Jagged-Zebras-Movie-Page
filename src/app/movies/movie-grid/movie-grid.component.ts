@@ -35,8 +35,8 @@ export class MovieGridComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.data.subscribe((data: { movies: IMovie[] }) => {
-      this.allMovies = data.movies;
+    this.route.data.subscribe((data: { movies: Object }) => {
+      this.allMovies = data.movies['results'] || data.movies[1];
       this.initializePagination();
     }, (err: Response) => {
       console.log('error in movies grid component');
