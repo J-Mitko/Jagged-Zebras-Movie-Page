@@ -14,6 +14,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { routes } from './app.router';
 
 import { MoviesService } from './movies/movies.service';
+import { DocumentRef } from './document.service';
+import { WindowRef } from './shared/window.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,13 @@ import { MoviesService } from './movies/movies.service';
     routes
   ],
   providers: [
+<<<<<<< HEAD
     MoviesService
+=======
+    MoviesService,
+    DocumentRef,
+    WindowRef
+>>>>>>> master
   ],
   bootstrap: [AppComponent]
 })

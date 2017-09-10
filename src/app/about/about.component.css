@@ -45,9 +45,9 @@ div.picture-text span {
 }
 div.info-box {
     height: 420px;
-    margin-bottom: 24px;
-    margin-right: 12px;
-    margin-left: 12px;
+    margin-bottom: 36px;
+    margin-right: 10px;
+    margin-left: 10px;
     background-color: #FFFFFF;
     border: 1px dotted #636363;
     border-radius: 6px;
@@ -90,6 +90,13 @@ div.info-box p {
 div.info-box p a {
     text-decoration: none;
     color: #333333;
+    transition: 1.2s all;
+        -webkit-transition: 1.2s all;
+	    -moz-transition: 1.2s all;
+	    -o-transition: 1.2s all;
+}
+div.info-box p a:hover {
+    color: #F53F1A;
 }
 
 /* On smaller screens: */
@@ -141,6 +148,9 @@ div.info-box p a {
     div.info-box {
         height: 440px;
     }
+    div.picture-text {
+        font-size: 1.2em;
+    }
 }
 @media (max-width: 562px) {
     div.info-box {
@@ -153,6 +163,9 @@ div.info-box p a {
     }
     div.info-box {
         height: 380px;
+    }
+    div.picture-text {
+        font-size: 1em;
     }
 }
 @media (max-width: 448px) {
