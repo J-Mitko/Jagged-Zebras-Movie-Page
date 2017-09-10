@@ -2,7 +2,7 @@ import { IMovie } from '../movie.model';
 import { MoviesService } from '../movies.service';
 import { DocumentRef } from '../../document.service';
 import { WindowRef } from '../../shared/window.service';
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';
 
@@ -12,22 +12,24 @@ import { FirebaseListObservable } from 'angularfire2/database';
   styleUrls: ['./movie-grid.component.css']
 })
 export class MovieGridComponent implements OnInit {
+  @Input() numberOfMoviesToShow = 9;
 
   movies: FirebaseListObservable<IMovie[]> | IMovie[];
 
   constructor(private movieService: MoviesService,
-  private route: ActivatedRoute,
-  private winRef: WindowRef,
-  private docRef: DocumentRef) {
+    private route: ActivatedRoute,
+    private winRef: WindowRef,
+    private docRef: DocumentRef) {
   }
 
   ngOnInit() {
     this.route.data.subscribe((data: { movies: IMovie[] }) => {
-      this.movies = data.movies.splice(0, 12);
+      this.movies = data.movies.splice(0, this.numberOfMoviesToShow);
     }, (err: Response) => {
       console.log('error in movies grid component');
       console.log(err.statusText);
     });
+
   }
 
   @HostListener('window:scroll', ['$event'])
