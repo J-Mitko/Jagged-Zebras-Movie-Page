@@ -25,6 +25,7 @@ export class MovieDetailsComponent implements OnInit {
     this.route.data.subscribe((data: { movie: IMovie }) => {
       this.movie = data.movie;
       const key = this.movie.videos['results'][0].key;
+      console.log(this.movie.videos);
       this.youtubeUrl = `https://www.youtube.com/embed/${key}?showinfo=0&modestbranding=0&rel=0`;
     }, (err: Response) => {
       console.log('error in movie detals component');

@@ -24,7 +24,7 @@ div h5:hover {
 div h5:hover a.user-profile-link {
     color: #F53F1A;
 }
-div a.user-profile-link {
+div h5 a.user-profile-link {
     display: block;
     text-decoration: none;
     text-align: center;
@@ -89,7 +89,6 @@ div.nav-controller a:hover {
     color:transparent;
     background-color: #FFFFFF;
 }
-
 button.sign-button {
     width: 80%;
     background-color: rgba(150, 150, 150, 0.4);
@@ -121,9 +120,31 @@ button.sign-button:hover {
     button.sign-button:hover {
         width: 92%;
     }
-
 }
-
+@media (max-width: 1012px) {
+    #search { 
+        width: 92%;
+    }
+    button.sign-button, div.nav-controller {
+        width: 92%;
+        font-size: 0.9em;
+        background-color: transparent;
+    }
+    button.sign-button:hover, div.nav-controller:hover {
+        width: 96%;
+    }
+    div h5 {
+        font-size: 0.84em;
+    }
+}
+@media (max-width: 884px) {
+     button.sign-button, div.nav-controller, div h5 {
+         font-size: 0.8em;
+     }
+    button.sign-button:hover, div.nav-controller:hover {
+        background-color: transparent;
+    }
+}
 @media (max-width: 768px) {
     #navigation {
         padding-top: 4px;
@@ -134,12 +155,38 @@ button.sign-button:hover {
         border-bottom: none;
     }
     #search {
-        width: 100%;
+        width: 92%;
+        transition: all 1.2s ease-in-out;
     }
-    div.nav-controller { 
+    #search:hover {
+        width: 96%;
+    }
+    div.nav-controller, button.sign-button, div h5 { 
+        font-size: 1.2em;
         text-align: center;
         margin-bottom: 12px;
         padding-bottom: 6px;
-        border-bottom: 1px dashed #101010;
+        border: 1px dashed #101010;
+    }
+    button.sign-button {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    div h5 {
+        margin-top: 12px;
+        margin-right: 4%;
+        margin-left: 4%;
+        padding-top: 12px;
+        padding-right: 6px;
+        padding-left: 6px;
+        border-radius: 4px;
+    }
+    div h5:hover {
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+    div h5 a.user-profile-link {
+        display: inline;
     }
 }
