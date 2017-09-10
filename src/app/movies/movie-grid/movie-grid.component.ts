@@ -81,6 +81,9 @@ export class MovieGridComponent implements OnInit {
       this.winRef.nativeWindow.requestAnimationFrame(this.scrollHandler);
     }
   }
+  scrollToTop() {
+    this.winRef.nativeWindow.scrollTo(0, 0);
+  }
 
   loadMore() {
     const additionalMovies = this.movieService.getMoviesByPopularity(this.page++)

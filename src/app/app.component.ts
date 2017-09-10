@@ -10,7 +10,7 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 export class AppComponent {
 
-  constructor(private winRef: WindowRef,public toastr: ToastsManager, public vcr: ViewContainerRef) {
+  constructor(private winRef: WindowRef, public toastr: ToastsManager, public vcr: ViewContainerRef) {
     this.toastr.setRootViewContainerRef(vcr);
    }
 

@@ -11,5 +11,4 @@ export class ExplorerComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
