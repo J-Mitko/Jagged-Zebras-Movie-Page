@@ -3,7 +3,9 @@
     <div id="navigation" class="row">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <p>Home</p>
+          <a routerLink='/'>
+            Home
+          </a>
         </li>
         <li class="nav-item">
           <form>
@@ -11,9 +13,15 @@
           </form>
         </li>
       </ul>
-      <div class="navbar-nav">
-        <button class="btn btn-danger" (click)="signinModal.show()">Sign In</button>
-        <button class="btn btn-danger" (click)="signupModal.show()">Sign Up</button>
+      <div class="nav-right nav-menu">
+        <div *ngIf="!auth.currentUser">
+          <button class="btn btn-danger" (click)="signinModal.show()">Sign In</button>
+          <button class="btn btn-danger" (click)="signupModal.show()">Sign Up</button>
+        </div>
+        <div *ngIf="auth.currentUser">
+          <h4>Welcome {{ auth.currentUserDisplayName }}</h4>
+          <button class="btn btn-danger" (click)="logout()">Sign Out</button>
+        </div>
       </div>
     </div>
   </div>

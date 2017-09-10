@@ -3,6 +3,8 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap/ng2-bootstrap';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 ///// Start FireStarter
 import { environment } from '../environments/environment';
@@ -19,16 +21,19 @@ import { AboutComponent } from './about/about.component';
 
 import { routes } from './app.router';
 import { SharedModule } from './shared/shared.module';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    AboutComponent
+    AboutComponent,
+    ProfileComponent
 
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CoreModule,
     routes,
     AngularFireModule.initializeApp(firebase),
@@ -36,7 +41,7 @@ import { SharedModule } from './shared/shared.module';
     ModalModule.forRoot(),
     MoviesModule,
     SharedModule.forRoot(),
-    routes
+    ToastModule.forRoot()
   ],
   providers: [
   ],

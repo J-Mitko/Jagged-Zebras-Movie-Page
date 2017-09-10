@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap/ng2-bootstrap';
 import { AuthService } from '../../core/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-signin',
@@ -31,7 +32,9 @@ export class SigninComponent implements OnInit {
     }
   };
 
-  constructor(private fb: FormBuilder, private auth: AuthService) {
+  constructor(public toastr: ToastsManager, vcr: ViewContainerRef,
+    private fb: FormBuilder, private auth: AuthService) {
+    this.toastr.setRootViewContainerRef(vcr);
     this.buildForm();
   }
 
@@ -66,16 +69,20 @@ export class SigninComponent implements OnInit {
 
   signInWithGoogle(): void {
     this.auth.googleLogin()
-      .then(() => console.log('google'));
+    .then(() => { this.hide(); this.toastr.success('Your are logged in!', 'Success'); })
+      .catch((err) => this.toastr.error(err.message, 'Error'));
   }
 
   signInWithFacebook(): void {
     this.auth.facebookLogin()
-      .then(() => console.log('facebook'));
+    .then(() => { this.hide(); this.toastr.success('Your are logged in!', 'Success'); })
+      .catch((err) => this.toastr.error(err.message, 'Error'));
   }
 
   login(): void {
-    this.auth.emailLogin(this.userSignInFrom.value['email'], this.userSignInFrom.value['password']);
+    this.auth.emailLogin(this.userSignInFrom.value['email'], this.userSignInFrom.value['password'])
+    .then(() => { this.hide(); this.toastr.success('Your are logged in!', 'Success'); })
+      .catch((err) => this.toastr.error('User not found', 'Error'));
   }
 
   onValueChanged(data?: any) {
