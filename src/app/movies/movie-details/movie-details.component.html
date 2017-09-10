@@ -1,4 +1,7 @@
-<div id="screen-header">
+<div id="screen-header" [ngStyle]="{'background-image': 'url(' + backgroundUrl +')'}">
+  <div class="picture-text">
+    <span>{{movie.title}}</span>
+  </div>
 </div>
 <section id="main-section">
   <h1>{{movie.title}}</h1>

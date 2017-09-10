@@ -3,13 +3,34 @@ div, h1, p {
     padding: 0;
 }
 #screen-header {
+    position: relative;
     min-height: 360px;
-    background-image: url('../../../assets/images/Movie_Screen.jpg');
-    background-size: 100%;
-    background-repeat: no-repeat;
+    background-size: 25%;
+    background-repeat: repeat;
     filter: blur(2px);
     filter: grayscale(88%);
     opacity: 0.6;
+    transition: all 1.2s ease-in-out;
+}
+#screen-header:hover {
+    filter: blur(0px);
+    filter: grayscale(8%);
+    opacity: 0.8;
+}
+div.picture-text {
+    position:absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.6em;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+div.picture-text span {
+    display: inline-block;
+    padding: 20px;
+    background-color: #404040;
+    color: #FFFFFF;
 }
 #main-section {
     height: auto;

@@ -13,6 +13,7 @@ import { SafePipe } from './../../shared/safe.pipe';
 export class MovieDetailsComponent implements OnInit {
   movie: IMovie;
   youtubeUrl: string;
+  backgroundUrl: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,8 +26,8 @@ export class MovieDetailsComponent implements OnInit {
     this.route.data.subscribe((data: { movie: IMovie }) => {
       this.movie = data.movie;
       const key = this.movie.videos['results'][0].key;
-      console.log(this.movie.videos);
       this.youtubeUrl = `https://www.youtube.com/embed/${key}?showinfo=0&modestbranding=0&rel=0`;
+      this.backgroundUrl = `http://i3.ytimg.com/vi/${key}/maxresdefault.jpg`;
     }, (err: Response) => {
       console.log('error in movie detals component');
       console.log(err.statusText);
