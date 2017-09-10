@@ -1,7 +1,7 @@
 import { IMovie } from '../movie.model';
 import { MoviesService } from '../movies.service';
 import { DocumentRef } from '../../document.service';
-import { WindowRef } from '../../window.service';
+import { WindowRef } from '../../shared/window.service';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';

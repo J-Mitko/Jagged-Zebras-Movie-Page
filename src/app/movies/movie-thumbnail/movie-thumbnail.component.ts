@@ -17,8 +17,15 @@ export class MovieThumbnailComponent implements OnInit {
   constructor(private route: ActivatedRoute, public sanitizer: SafePipe) { }
 
   ngOnInit() {
-    this.key = this.movie.key;
-    this.poster = `http://i3.ytimg.com/vi/${this.key}/maxresdefault.jpg`;
+    // this.key = this.movie.key;
+    // this.poster = `http://i3.ytimg.com/vi/${this.key}/maxresdefault.jpg`;
+    const path_url = this.movie['backdrop_path'];
+    if (path_url) {
+      this.poster = 'http://image.tmdb.org/t/p/w1280/' + path_url;
+    } else {
+      this.poster = 'https://www.jetcharters.com/bundles/jetcharterspublic/images/image-not-found.jpg';
+    }
+
   }
 
   posterUrl() {

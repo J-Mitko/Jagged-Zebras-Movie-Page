@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { DocumentRef } from '../document.service';
-import { WindowRef } from '../window.service';
+import { WindowRef } from '../shared/window.service';
 
 @Component({
   selector: 'app-footer',

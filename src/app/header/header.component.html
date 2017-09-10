@@ -1,28 +1,35 @@
 <nav class="navbar navbar-inverse navbar-toggleable-md bg-primary navbar-fixed-top">
   <div class="collapse navbar-collapse show">
     <div id="navigation" class="row">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a routerLink='/'>
+      <div class="col-sm-2 nav-controller">
+        <a routerLink='/'>
             Home
           </a>
-        </li>
-        <li class="nav-item">
-          <form>
-            <input id="search" type="search" name="search" placeholder="Search">
-          </form>
-        </li>
-      </ul>
-      <div class="nav-right nav-menu">
-        <div *ngIf="!auth.currentUser">
-          <button class="btn btn-danger" (click)="signinModal.show()">Sign In</button>
-          <button class="btn btn-danger" (click)="signupModal.show()">Sign Up</button>
-        </div>
-        <div *ngIf="auth.currentUser">
-          <h4>Welcome {{ auth.currentUserDisplayName }}</h4>
-          <button class="btn btn-danger" (click)="logout()">Sign Out</button>
+      </div>
+      <div class="col-sm-2 nav-controller">
+        <a routerLink="/movies">Explore movies</a>
+      </div>
+      <div class="col-sm-4">
+        <form>
+          <input id="search" type="search" name="search" placeholder="Search" #searchMovie (keyup.enter)="getMovies(searchMovie.value)"
+            (blur)="getMovies(searchMovie.value); searchMovie.value = '' ">
+        </form>
+      </div>
+      <div *ngIf="!auth.currentUser" class="nav-right nav-menu col-sm-4">
+        <button class="btn btn-danger" (click)="signinModal.show()">Sign In</button>
+        <button class="btn btn-danger" (click)="signupModal.show()">Sign Up</button>
+      </div>
+      <div *ngIf="auth.currentUser" class="nav-right nav-menu col-sm-4">
+        <div class="row">
+          <div class="col-sm-6">
+            <h5>Welcome {{ auth.currentUserDisplayName }}</h5>
+          </div>
+          <div class="col-sm-6">
+            <button class="btn btn-danger" (click)="logout()">Sign Out</button></div>
         </div>
       </div>
+      <app-signin></app-signin>
+      <app-signup></app-signup>
     </div>
   </div>
 </nav>
