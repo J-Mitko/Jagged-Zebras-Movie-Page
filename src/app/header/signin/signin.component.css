@@ -1,92 +1,116 @@
-div.nav-controller {
-    padding-top: 4px;
-    font-size: 1.2em;
-    letter-spacing: 1px;
+.btn-fb
+{
+	display: inline-block;
+	padding: 18px 20px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 0px;
+	background-color: #4568B2;
+	width: 100%;
+	margin-top: 10px;
+	color:#fff;
 }
-div.nav-controller:first-child {
-    padding-left: 40px;
+.btn-gp
+{
+	display: inline-block;
+	padding: 18px 20px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid #eee;
+	border-radius: 0px;
+	background-color: #D84937;
+	width: 100%;
+	margin-top: 10px;
+	color:#fff;
 }
-div.nav-controller span:hover {
-    cursor: pointer;
+
+.btn-lgin
+{
+	display: inline-block;
+	padding: 18px 20px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid #eee;
+	border-radius: 0px;
+	background-color: #1DB9EC;
+	width: 100%;
+	margin-top: 10px;
+	color:#fff;
 }
-div.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 28px;
-    background-color: rgba(211, 211, 211, 0.6);
-    width: 360px;
-    border-radius: 4px;
-    border: 1px dotted #000000;
-}
-div.dropdown-content-left {
-    left: -96px;
-}
-div.dropdown-content h3 {
-    margin: 12px 8px;
-    font-size: 1em;
-    font-weight: bold;
-    color: #101010;
-}
-div.dropdown-content form {
-    margin: 12px 8px;
-}
-div.dropdown-content form label {
-    font-size: 0.8em;
-    color: #202020;
-}
-div.dropdown-content form input {
+
+.form-control-form {
     display: block;
-    color: #000000;
     width: 100%;
-    margin-bottom: 6px;
-    padding: 4px 4px 0px 4px;
-    border-radius: 4px;
+    height: 54px;
+    padding: 15px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin-top: 3px;
+}   
+
+.signup-or-separator {
+	background: none;
+	height: 34px;
+	position: relative;
+    text-align: center;
 }
-button.button {
-    font-weight: bold;
-    background-color: #101010;
-    width: 64%;
-    margin-top: 6px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: 1.2s ease-in-out;
-        -webkit-transition: 1.2s ease-in-out;
-	    -moz-transition: 1.2s ease-in-out;
-	    -o-transition: 1.2s ease-in-out;
+
+.signup-or-separator--text {
+	background-color: #fff;
+	display: inline-block;
+	padding: 10px;
 }
-button.button:hover {
-    background-color: #F53F1A;
-    color: #101010;
-    box-shadow: 6px 6px 6px #404040;
-}
-div.nav-controller:hover div.dropdown-content {
-    display: block;
-}
-div.alert {
-    padding: 4px 4px 0px 4px;
-    font-size: 0.8em;
-    color: #404040;
-    background-color: #FFFFE0;
-    border: 1px dotted #101010;
-    box-shadow: 4px 4px 4px #666666;
-}
-div.dropdown-content form input:focus, button.button:focus {
-    outline: none;
-}
-form input::-moz-placeholder {
-    color: #666666;
-}
-form input:focus::-moz-placeholder { 
-    color:transparent; 
-}
-form input::-webkit-input-placeholder {
-    color: #666666;
-    opacity: 0.6;
-}
-form input:focus::-webkit-input-placeholder { 
-    color:transparent;
-    background-color: #FFFFFF;
-}
+
 
 /* On smaller screens: */
 

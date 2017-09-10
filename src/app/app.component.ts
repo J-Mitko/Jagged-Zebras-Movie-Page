@@ -13,6 +13,6 @@ export class AppComponent {
 
   onDeactivate() {
     this.winRef.nativeWindow.scrollTo(0, 0);
-}
+  }
 
 }

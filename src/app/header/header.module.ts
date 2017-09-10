@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ViewContainerRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {ModalModule} from 'ngx-bootstrap/ng2-bootstrap';
 
 import { HeaderComponent } from './header.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+
 
 import { routes } from './header.router';
 
@@ -12,16 +14,17 @@ import { routes } from './header.router';
   declarations: [
     HeaderComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    routes
+    routes,
+    ModalModule
   ]
 })
 export class HeaderModule { }

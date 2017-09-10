@@ -1,19 +1,49 @@
-<div class="col-sm-2 nav-controller">
-        <span>Sign In</span>
-        <div class="dropdown-content dropdown-content-left">
-          <h3>If you already have an account with us, please sign in here!</h3>
-          <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
-            <label for="user">Please, select your username:</label>
-            <input id="user" type="text" formControlName="name" placeholder="Username">
-            <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
-              Username should be between 4 and 30 symbols long!
+<div bsModal #signinModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signinModule" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Sign In</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+      </div>
+      <div class="modal-body">
+        <button class="btn-fb" (click)="signInWithFacebook()"> <i class="fa fa-fw fa-facebook pull-left" aria-hidden="true"></i>
+            Login with Facebook	
+        </button> <br>
+        <button class="btn-gp" (click)="signInWithGoogle()"> <i class="fa fa-fw fa-google-plus pull-left" aria-hidden="true"></i>
+            Login with Google	
+        </button> <br>
+
+        <div class="signup-or-separator">
+          <span class="h6 signup-or-separator--text">or</span>
+          <hr>
+        </div>
+
+        <form [formGroup]="userSignInFrom">
+          <div class="form-group">
+            <input type="email" id="email" class="input form-control-form" formControlName="email" required>
+
+            <div *ngIf="formErrors.email" class="notification is-danger">
+              {{ formErrors.email }}
             </div>
-            <label for="pass">Please, choose a password:</label>
-            <input id ="pass" type="password" formControlName="password" placeholder="Password">
-            <div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">
-              Password should be between 6 and 30 symbols long!
+
+            <input type="password" id="password" class="input form-control-form" formControlName="password" required>
+
+            <div *ngIf="formErrors.password" class="notification is-danger">
+              {{ formErrors.password }}
             </div>
-            <button class="button" type="submit" [disabled]="!rForm.valid">Sign In</button>
-          </form>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col-md-12">
+            <button type="submit" class="btn-lgin center" [disabled]="!userSignInFrom.valid" (click)="login()">Login</button>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
