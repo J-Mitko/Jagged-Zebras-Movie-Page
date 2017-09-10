@@ -8,6 +8,7 @@ import { MovieGridComponent } from './movie-grid/movie-grid.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MovieDetailResolverService } from './movie-resolvers/movie-detail-resolver.service';
+import { FavouritesResolverService } from './movie-resolvers/favourites-resolver.service';
 
 const routes: Routes = [
   {
@@ -39,7 +40,8 @@ const routes: Routes = [
   providers: [
     MovieDetailResolverService,
     MoviesGridResolverService,
-    SearchMovieResolverService
+    SearchMovieResolverService,
+    FavouritesResolverService
   ]
 })
 export class MoviesRoutingModule { }
