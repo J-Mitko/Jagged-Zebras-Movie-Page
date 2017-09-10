@@ -18,14 +18,6 @@ export class SearchMovieResolverService implements Resolve<IMovie[]> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IMovie[]> {
     const queryString = route.paramMap.get('name');
 
-    return this.movieService.searchForMovieByName(queryString)
-      .map(res => {
-        if (res) {
-          return res;
-        } else {
-          this.router.navigate(['/']);
-          return null;
-        }
-      });
+    return this.movieService.searchForMovieByName(queryString);
   }
 }

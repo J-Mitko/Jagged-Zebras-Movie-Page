@@ -3,7 +3,7 @@ import { MoviesService } from '../movies.service';
 import { DocumentRef } from '../../shared/document.service';
 import { WindowRef } from '../../shared/window.service';
 import { Component, OnInit, HostListener, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
@@ -32,7 +32,13 @@ export class MovieGridComponent implements OnInit {
   constructor(private movieService: MoviesService,
     private route: ActivatedRoute,
     private winRef: WindowRef,
-    private docRef: DocumentRef) {
+    private docRef: DocumentRef,
+    private router: Router) {
+    router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        this.ngOnInit();
+      }
+    });
   }
 
   ngOnInit() {
@@ -82,13 +88,10 @@ export class MovieGridComponent implements OnInit {
         return res;
       }).subscribe(res => {
         this.page = +res['page'] || +res[0];
-        console.log(res['results']);
-        console.log(this.allMovies.length);
         const toAdd = res['results'] || res[1];
         this.allMovies.push(...toAdd);
         this.initializePagination();
         this.setPagination(this.page);
-        console.log(this.allMovies.length);
       });
   }
 
