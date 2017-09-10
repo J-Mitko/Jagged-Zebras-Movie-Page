@@ -13,8 +13,16 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class MovieGridComponent implements OnInit {
   @Input() numberOfMoviesToShow = 9;
+  @Input() showPagination = true;
+
+  collSize: number;
+  page = 1;
+  start: number;
+  end: number;
 
   movies: FirebaseListObservable<IMovie[]> | IMovie[];
+
+  allMovies: IMovie[];
 
   constructor(private movieService: MoviesService,
     private route: ActivatedRoute,
@@ -24,13 +32,36 @@ export class MovieGridComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe((data: { movies: IMovie[] }) => {
-      this.movies = data.movies.splice(0, this.numberOfMoviesToShow);
+      this.allMovies = data.movies;
+      this.initializePagination();
     }, (err: Response) => {
       console.log('error in movies grid component');
       console.log(err.statusText);
     });
 
   }
+
+  initializePagination() {
+    this.collSize = this.allMovies.length;
+    this.start = 0;
+    console.log(this.numberOfMoviesToShow < this.allMovies.length);
+    if (this.numberOfMoviesToShow > this.allMovies.length) {
+      this.end = this.allMovies.length;
+    } else {
+      this.end = this.numberOfMoviesToShow;
+    }
+    this.movies = this.allMovies.slice(this.start, this.end);
+  }
+
+  setPagination(page: number) {
+    this.start = (page - 1) * this.numberOfMoviesToShow;
+    this.end = Math.min(this.start + this.numberOfMoviesToShow, this.collSize);
+    console.log('start ' + this.start);
+    console.log('end ' + this.end);
+    this.movies = this.allMovies.slice(this.start, this.end);
+    console.log('movies length ' + this.movies.length);
+  }
+
 
   @HostListener('window:scroll', ['$event'])
   onScroll(ev) {

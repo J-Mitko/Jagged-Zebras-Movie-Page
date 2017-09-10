@@ -1,7 +1,16 @@
 <div id="movie-container" class="container-fluid">
   <div class="row">
     <div class="col-sm-4 movie-con" *ngFor="let currentMovie of movies">
-       <app-movie-thumbnail [movie]="currentMovie"></app-movie-thumbnail>
+      <app-movie-thumbnail [movie]="currentMovie"></app-movie-thumbnail>
     </div>
+    <div *ngIf='showPagination'>
+      <ngb-pagination (pageChange)="setPagination($event)"
+                      [collectionSize]="this.collSize"
+                      [(page)]="page" 
+                      aria-label="Default pagination" 
+                      [pageSize]="this.numberOfMoviesToShow">
+      </ngb-pagination>
+    </div>
+
   </div>
 </div>

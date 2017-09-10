@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesService } from './movies.service';
@@ -20,7 +21,8 @@ import { AngularFireModule } from 'angularfire2';
     HttpClientModule,
     SharedModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    NgbModule.forRoot()
   ],
   declarations: [
     MovieGridComponent,
