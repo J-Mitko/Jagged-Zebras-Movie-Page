@@ -1,13 +1,11 @@
 <div class="fb-profile">
 
     <img align="left" class="fb-image-lg" src="./../../assets/images/Movie_Camera.jpeg" alt="Profile image example" />
-    <img align="left" class="fb-image-profile thumbnail" [src]="auth.currentUserDisplayImg" alt="Profile image example"
-    />
+    <img align="left" class="fb-image-profile thumbnail" [src]="auth.currentUserDisplayImg" alt="Profile image example" />
     <div class="fb-profile-text">
         <h1 id="username">{{auth.currentUserDisplayName}}</h1>
     </div>
 </div>
 <div class="container">
-    <app-movie-grid [showAllFlag]='true' ></app-movie-grid>
+    <app-movie-grid></app-movie-grid>
 </div>
-

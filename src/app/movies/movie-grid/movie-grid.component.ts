@@ -1,4 +1,4 @@
-import { IMovie } from '../movie.model';
+import { IMovie } from './../movie.model';
 import { MoviesService } from '../movies.service';
 import { DocumentRef } from '../../shared/document.service';
 import { WindowRef } from '../../shared/window.service';
@@ -17,13 +17,14 @@ export class MovieGridComponent implements OnInit {
   @Input() imageRotation = false;
   @Input() scrollOffset = -1;
   @Input() scrollDelay = 100;
+  @Input() showMore = false;
 
-  collSize: number;
+  collSize = 0;
   page = 1;
   start: number;
   end: number;
+  showMoreButton = false;
 
-  @Input() showAllFlag = false;
   movies: FirebaseListObservable<IMovie[]> | IMovie[];
 
   allMovies: IMovie[];
@@ -38,6 +39,9 @@ export class MovieGridComponent implements OnInit {
     this.route.data.subscribe((data: { movies: Object }) => {
       this.allMovies = data.movies['results'] || data.movies[1];
       this.initializePagination();
+      if (this.showMore) {
+        this.collSize++;
+      }
     }, (err: Response) => {
       console.log('error in movies grid component');
       console.log(err.statusText);
@@ -58,15 +62,35 @@ export class MovieGridComponent implements OnInit {
     this.movies = this.allMovies.slice(this.start, this.end);
   }
 
-  setPagination(page: number) {
-    this.start = (page - 1) * this.numberOfMoviesToShow;
+  setPagination(pageEvent: number) {
+    this.start = (pageEvent - 1) * this.numberOfMoviesToShow;
     this.end = Math.min(this.start + this.numberOfMoviesToShow, this.collSize);
     this.movies = this.allMovies.slice(this.start, this.end);
+    if (this.start >= this.collSize - this.numberOfMoviesToShow && this.showMore) {
+      this.showMoreButton = true;
+    } else {
+      this.showMoreButton = false;
+    }
     if (!this.imageRotation) {
       this.winRef.nativeWindow.requestAnimationFrame(this.scrollHandler);
     }
   }
 
+  loadMore() {
+    const additionalMovies = this.movieService.getMoviesByPopularity(this.page++)
+      .take(1).map(res => {
+        return res;
+      }).subscribe(res => {
+        this.page = +res['page'] || +res[0];
+        console.log(res['results']);
+        console.log(this.allMovies.length);
+        const toAdd = res['results'] || res[1];
+        this.allMovies.push(...toAdd);
+        this.initializePagination();
+        this.setPagination(this.page);
+        console.log(this.allMovies.length);
+      });
+  }
 
   @HostListener('window:scroll', ['$event'])
   onScroll(ev) {

@@ -7,3 +7,49 @@ div.movie-con {
 div.movie-con img {
     border-radius: 4px;
 }
+div.show-more-control {
+    width: 60%;
+    background-color: rgba(150, 150, 150, 0.4);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 1.2s ease-in-out;
+}
+div.show-more-control:hover {
+    width: 65%;
+    background-color: rgba(200, 200, 200, 0.6);
+}
+div.show-more-control a {
+    display: block;
+    color: #E4F0ED;
+    text-align: center;
+    transition: all 1.2s ease-in-out;
+}
+
+div.show-more-control:hover a {
+    color: #F53F1A;
+}
+div.show-more-control a:active, div.show-more-control a:visited, div.show-more-control a:link {
+    text-decoration: none;
+}
+div.show-more-control a:hover {
+    text-decoration: none;
+}
+
+
+@media (max-width: 1186px) {
+    div.show-more-control, button.sign-button { 
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    div.show-more-control { 
+        text-align: center;
+        margin-bottom: 12px;
+        padding-bottom: 6px;
+        border-bottom: 1px dashed #101010;
+    }
+}

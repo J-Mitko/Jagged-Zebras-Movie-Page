@@ -30,15 +30,15 @@ export class MoviesService {
       .get<IMovie[]>(address + name);
   }
 
-  getMoviesByPopularity(): Observable<object> | Observable<IMovie[]> | FirebaseListObservable<IMovie[]> {
+  getMoviesByPopularity(page: number = 1): Observable<object> | Observable<IMovie[]> | FirebaseListObservable<IMovie[]> {
 
     // // // Use this for internet and local json
-    // const address = 'https://api.themoviedb.org/3/movie/popular?api_key=28c57aa94fd0201c8fa6edc867cd6815&language=en-US&page=1&region=Europe';
-    // return this.http
-    //   .get(address);
+    const address = `https://api.themoviedb.org/3/movie/popular?api_key=28c57aa94fd0201c8fa6edc867cd6815&language=en-US&page=${page}&region=Europe`;
+    return this.http
+      .get(address);
 
     // Use this for firebase
-    return this.db.list('/popular');
+    // return this.db.list('/popular');
   }
 }
 
