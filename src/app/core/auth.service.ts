@@ -58,11 +58,11 @@ export class AuthService {
   // Returns current user display img or Guest
   get currentUserDisplayImg(): string {
     if (!this.authState) {
-      return '../../assets/images/default_photo.jpg';
+      return '../../assets/images/Default_Photo.jpg';
     } else if (this.currentUserAnonymous) {
-      return '../../assets/images/default_photo.jpg';
+      return '../../assets/images/Default_Photo.jpg';
     } else {
-      return this.authState['photoURL'] || '../../assets/images/default_photo.jpg';
+      return this.authState['photoURL'] || '../../assets/images/Default_Photo.jpg';
     }
   }
   //// Social Auth ////

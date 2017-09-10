@@ -1,20 +1,40 @@
-.fb-profile img.fb-image-lg{
-    z-index: 0;
+div.fb-profile {
+    position: relative;
     width: 100%;
     min-height: 600px;
-    max-height:600px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-bottom: 10px;
+    z-index: 0;
+    filter: blur(2px);
+    filter: grayscale(88%);
+    opacity: 0.8;
 }
-
-.fb-image-profile
+div.fb-profile-container
 {
-    margin: -90px 10px 0px 50px;
+    position: fixed;
+    top: 80px;
+    left: 40px;
+    width: 36%; 
+    height: 40%;
     z-index: 9;
-    width: 192px; 
-    height: 192px;
+    background-color: #FFFFFF;
+    border: 2px double #909090;
+    border-radius: 4px;
+    overflow: auto;
+    box-shadow: 8px 8px 8px #C0C0C0;
+}
+img.fb-image-profile {
+    width: 44%;
+    margin-top: 12px;
+    margin-left: 12px;
+    float: left;
+}
+#username {
+    width: 52%;
+    float: left;
+    padding-left: 12px;
+    font-size: 1.6em;
 }
 
 @media (max-width:768px)

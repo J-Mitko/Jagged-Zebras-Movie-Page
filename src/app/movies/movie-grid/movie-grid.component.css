@@ -11,6 +11,15 @@ div.show-pagination {
     text-align: center;
     margin-bottom: 24px;
 }
+.row.match-my-cols {
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+.row.match-my-cols [class*="col-"]{
+    display: flex;
+    flex-direction: column;
+}
 ngb-pagination /deep/ .page-link {
     background-color: #606060;
     color: #101010;

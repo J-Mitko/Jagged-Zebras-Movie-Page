@@ -1,11 +1,9 @@
-<div class="fb-profile">
-
-    <img align="left" class="fb-image-lg" src="./../../assets/images/Movie_Camera.jpeg" alt="Profile image example" />
-    <img align="left" class="fb-image-profile thumbnail" [src]="auth.currentUserDisplayImg" alt="Profile image example" />
-    <div class="fb-profile-text">
-        <h1 id="username">{{auth.currentUserDisplayName}}</h1>
-    </div>
+<div class="fb-profile" style="background-image: url('../../assets/images/Movie_Camera.jpeg')">
 </div>
-<div class="container">
+<div class="fb-profile-container">
+        <img class="fb-image-profile thumbnail" [src]="auth.currentUserDisplayImg" alt="Profile image example">
+        <h1 id="username">Welcome, {{auth.currentUserDisplayName}}</h1>
+    </div>
+<div style="opacity: 0.8">
     <app-movie-grid></app-movie-grid>
 </div>
