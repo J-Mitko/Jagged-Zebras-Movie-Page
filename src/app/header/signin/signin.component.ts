@@ -49,7 +49,7 @@ export class SigninComponent implements OnInit {
       ],
       'password': ['', [
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-        Validators.minLength(3),
+        Validators.minLength(6),
         Validators.maxLength(25)
       ]
       ],
@@ -68,20 +68,17 @@ export class SigninComponent implements OnInit {
 
   signInWithGoogle(): void {
     this.auth.googleLogin()
-    .then(() => { this.hide(); this.notification.showSuccess('Your are logged in!'); })
-    .catch((err) => this.notification.showError(err.message));
+    .then(() =>  this.hide());
   }
 
   signInWithFacebook(): void {
     this.auth.facebookLogin()
-    .then(() => { this.hide(); this.notification.showSuccess('Your are logged in!'); })
-    .catch((err) => this.notification.showError(err.message));
+    .then(() =>  this.hide());
   }
 
   login(): void {
     this.auth.emailLogin(this.userSignInFrom.value['email'], this.userSignInFrom.value['password'])
-    .then(() => { this.hide(); this.notification.showSuccess('Your are logged in!'); })
-    .catch((err) => this.notification.showError(err.message));
+    .then(() =>  this.hide());
   }
 
   onValueChanged(data?: any) {

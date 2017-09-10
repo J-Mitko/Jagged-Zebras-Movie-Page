@@ -29,47 +29,12 @@ export class MovieGridComponent implements OnInit {
       console.log('error in movies grid component');
       console.log(err.statusText);
     });
-    // if (this.showAllFlag) {
-    //   this.showAll();
-    // }
   }
 
   @HostListener('window:scroll', ['$event'])
   onScroll(ev) {
     this.winRef.nativeWindow.requestAnimationFrame(this.scrollHandler);
   }
-
-  // private showAll() {
-  //   console.log('show all');
-  //   if (!this.docRef.nativeDocument.getElementsByClassName('hidden-img')) {
-  //     return;
-  //   }
-  //   console.log('show all');
-  //   let imgs: any;
-  //   let imgsArr: Array<any>;
-  //   let spans: any;
-  //   let spansArr: Array<any>;
-
-  //   imgs = this.docRef.nativeDocument.getElementsByClassName('hidden-img');
-  //   console.log(imgs);
-  //   imgsArr = Array.from(imgs);
-  //   console.log(imgsArr);
-  //   imgsArr.forEach((img, i) => {
-  //     setTimeout(() => {
-  //       img.classList.remove('hidden-img');
-  //       img.classList.add('is-showing');
-  //     }, 0 * ((i + 1) * 2));
-
-  //     spans = this.docRef.nativeDocument.getElementsByClassName('hidden-title');
-  //     spansArr = Array.from(spans);
-  //     spansArr.forEach((span, j) => {
-  //       setTimeout(() => {
-  //         span.classList.remove('hidden-title');
-  //         span.classList.add('title');
-  //       }, 0 * ((j + 1) * 2));
-  //     });
-  //   });
-  // }
 
   private scrollHandler = () => {
     if (!this.docRef.nativeDocument.getElementsByClassName('hidden-img')) {

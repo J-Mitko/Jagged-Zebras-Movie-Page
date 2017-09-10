@@ -4,13 +4,14 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 
+import { NotificationService } from './notification.service';
 
 @Injectable()
 export class AuthService {
 
   authState: any = null;
 
-  constructor(private afAuth: AngularFireAuth,
+  constructor(public notification: NotificationService, private afAuth: AngularFireAuth,
     private db: AngularFireDatabase,
     private router: Router) {
 
@@ -66,6 +67,8 @@ export class AuthService {
   }
   //// Social Auth ////
 
+// this.notification.showSuccess('Your are logged in!');
+// this.notification.showError(err.message)
   githubLogin() {
     const provider = new firebase.auth.GithubAuthProvider();
     return this.socialSignIn(provider);
@@ -90,9 +93,10 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((credential) => {
         this.authState = credential.user;
+        this.notification.showSuccess('Your are logged in!');
         this.updateUserData();
       })
-      .catch(error => console.log(error));
+      .catch(error => this.notification.showError(error));
   }
 
 
@@ -102,8 +106,9 @@ export class AuthService {
     return this.afAuth.auth.signInAnonymously()
       .then((user) => {
         this.authState = user;
+        this.notification.showSuccess('Your are logged in Anonymously!');
       })
-      .catch(error => console.log(error));
+      .catch(error => this.notification.showError(error));
   }
 
   //// Email/Password Auth ////
@@ -111,19 +116,21 @@ export class AuthService {
   emailSignUp(email: string, password: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
+        this.notification.showSuccess('Your are logged in!');
         this.authState = user;
         this.updateUserData();
       })
-      .catch(error => console.log(error));
+      .catch(error => this.notification.showError(error));
   }
 
   emailLogin(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
+        this.notification.showSuccess('Your are logged in!');
         this.authState = user;
         this.updateUserData();
       })
-      .catch(error => console.log(error));
+      .catch(error => this.notification.showError(error));
   }
 
   // Sends email allowing user to reset password
@@ -132,7 +139,7 @@ export class AuthService {
 
     return fbAuth.sendPasswordResetEmail(email)
       .then(() => console.log('email sent'))
-      .catch((error) => console.log(error));
+      .catch(error => this.notification.showError(error));
   }
 
 
@@ -155,9 +162,8 @@ export class AuthService {
       email: this.authState.email,
       name: this.authState.displayName
     };
-
     this.db.object(path).update(data)
-      .catch(error => console.log(error));
+    .catch(error => this.notification.showError(error));
 
   }
 }
