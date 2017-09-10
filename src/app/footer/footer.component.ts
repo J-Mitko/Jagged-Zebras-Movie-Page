@@ -7,6 +7,7 @@ import { WindowRef } from '../shared/window.service';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
+
 export class FooterComponent implements OnInit {
 
   constructor(private winRef: WindowRef,

@@ -17,11 +17,27 @@ div.nav-controller {
     font-size: 1.2em;
     letter-spacing: 1px;
     border-radius: 4px;
+    transition: all 1.2s ease-in-out;
+}
+div.nav-controller:hover {
+    width: 88%;
+    background-color: rgba(200, 200, 200, 0.6);
 }
 div.nav-controller a {
     display: block;
     color: #E4F0ED;
     text-align: center;
+    transition: all 1.2s ease-in-out;
+}
+
+h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 2px;
+    text-align: center;
+}
+div.nav-controller:hover a {
+    color: #F53F1A;
 }
 div.nav-controller a:active, div.nav-controller a:visited, div.nav-controller a:link {
     text-decoration: none;
