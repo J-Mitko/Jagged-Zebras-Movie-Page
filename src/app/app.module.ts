@@ -38,7 +38,7 @@ import { WindowRef } from './shared/window.service';
 
     HomeComponent,
     NotFoundComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

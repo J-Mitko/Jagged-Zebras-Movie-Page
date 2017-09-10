@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from './../../environments/environment';
 import { AngularFireModule } from 'angularfire2';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { AngularFireModule } from 'angularfire2';
   declarations: [
     MovieGridComponent,
     MovieThumbnailComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    SearchComponent
   ],
   exports: [MovieGridComponent, MovieThumbnailComponent ],
   providers: []
