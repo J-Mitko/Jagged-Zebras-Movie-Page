@@ -4,6 +4,7 @@ import { IMovie } from './../movie.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router, UrlSegment } from '@angular/router';
 import { SafePipe } from './../../shared/safe.pipe';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -18,7 +19,8 @@ export class MovieDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public sanitizer: SafePipe,
-    private movieService: MoviesService
+    private movieService: MoviesService,
+    public auth: AuthService,
   ) { }
 
   ngOnInit() {
@@ -36,5 +38,9 @@ export class MovieDetailsComponent implements OnInit {
 
   movieUrl() {
     return this.sanitizer.transform(this.youtubeUrl);
+  }
+
+  addToFavourites(movie: IMovie) {
+    this.movieService.addMovieToFavourites(movie, this.auth.currentUserId);
   }
 }

@@ -78,6 +78,37 @@ h3 {
 h3 span {
     font-weight: normal;
 }
+div.add-to-favourites {
+    width: 84%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(150, 150, 150, 0.4);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 1.2s ease-in-out;
+}
+div.add-to-favourites:hover {
+    width: 88%;
+    background-color: rgba(200, 200, 200, 0.6);
+}
+div.add-to-favourites a {
+    display: block;
+    color: #E4F0ED;
+    text-align: center;
+    transition: all 1.2s ease-in-out;
+}
+div.add-to-favourites:hover a {
+    color: #F53F1A;
+}
+div.add-to-favourites a:active, div.add-to-favourites a:visited, div.add-to-favourites a:link {
+    text-decoration: none;
+}
+div.add-to-favourites a:hover {
+    text-decoration: none;
+}
 
 /* On smaller screens: */
 
@@ -91,5 +122,29 @@ h3 span {
     #screen {
         width: 360px;
         height: 240px;
+    }
+}
+
+@media (max-width: 1186px) {
+    div.add-to-favourites { 
+        font-size: 1em;
+    }
+}
+@media (max-width: 1012px) {
+    div.add-to-favourites {
+        width: 92%;
+        font-size: 0.9em;
+        background-color: transparent;
+    }
+    div.add-to-favourites:hover {
+        width: 96%;
+    }
+}
+@media (max-width: 884px) {
+     div.add-to-favourites {
+         font-size: 0.8em;
+     }
+    div.add-to-favourites:hover {
+        background-color: transparent;
     }
 }

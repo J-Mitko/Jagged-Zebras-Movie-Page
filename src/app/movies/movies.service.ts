@@ -34,12 +34,35 @@ export class MoviesService {
 
     // // // Use this for internet and local json
     const address =
-    `https://api.themoviedb.org/3/movie/popular?api_key=28c57aa94fd0201c8fa6edc867cd6815&language=en-US&page=${page}&region=Europe`;
+      `https://api.themoviedb.org/3/movie/popular?api_key=28c57aa94fd0201c8fa6edc867cd6815&language=en-US&page=${page}&region=Europe`;
     return this.http
       .get(address);
 
     // Use this for firebase
     // return this.db.list('/popular');
+  }
+
+  addMovieToFavourites(movie: IMovie, userId: string) {
+    const address = '/users/' + userId + '/favourites';
+    const inList = false;
+
+    this.db.list(address).subscribe(res => {
+      let isInList = false;
+      for (let i = 0; i < res.length; i++) {
+        if (res[i].title === movie.title) {
+          isInList = true;
+          break;
+        }
+      }
+      if (!isInList) {
+        this.db.list(address).push(movie);
+      }
+    });
+  }
+
+  getFavourites(userId: string) {
+    const address = '/users/' + userId + '/favourites';
+    return this.db.list(address);
   }
 }
 
