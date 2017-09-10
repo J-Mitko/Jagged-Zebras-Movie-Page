@@ -17,7 +17,6 @@ import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -26,16 +25,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { routes } from './app.router';
 
 import { MoviesService } from './movies/movies.service';
-import { DocumentRef } from './document.service';
-import { WindowRef } from './shared/window.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    AboutComponent,
     ProfileComponent,
-
     HomeComponent,
     NotFoundComponent,
     FooterComponent
@@ -53,8 +48,7 @@ import { WindowRef } from './shared/window.service';
     ToastModule.forRoot()
   ],
   providers: [
-    MoviesService,
-    DocumentRef
+    MoviesService
   ],
   bootstrap: [AppComponent]
 })

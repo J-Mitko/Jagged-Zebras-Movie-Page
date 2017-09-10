@@ -1,7 +1,7 @@
 import { NgModule, ViewContainerRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {ModalModule} from 'ngx-bootstrap/ng2-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/ng2-bootstrap';
 
 import { HeaderComponent } from './header.component';
 import { SigninComponent } from './signin/signin.component';
