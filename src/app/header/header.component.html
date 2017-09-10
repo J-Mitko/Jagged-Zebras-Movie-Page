@@ -28,7 +28,9 @@
         <button class="btn sign-button" (click)="signupModal.show()">Sign Up</button>
       </div>
       <div *ngIf="auth.currentUser" class="col-sm-2">
-        <a class="user-profile-link" routerLink="/profile">Welcome, {{auth.currentUserDisplayName}}</a>
+        <h5>Welcome,
+          <a class="user-profile-link" routerLink="/profile">{{auth.currentUserDisplayName}}</a>
+        </h5>
       </div>
       <div *ngIf="auth.currentUser" class="col-sm-2">
         <button class="btn sign-button" (click)="logout()">Sign Out</button>
