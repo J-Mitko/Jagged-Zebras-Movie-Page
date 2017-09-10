@@ -22,7 +22,7 @@
       <div *ngIf="auth.currentUser" class="nav-right nav-menu col-sm-4">
         <div class="row">
           <div class="col-sm-6">
-            <h5>Welcome {{ auth.currentUserDisplayName }}</h5>
+            <a routerLink='/profile'>Welcome {{ auth.currentUserDisplayName }}</a>
           </div>
           <div class="col-sm-6">
             <button class="btn btn-danger" (click)="logout()">Sign Out</button></div>

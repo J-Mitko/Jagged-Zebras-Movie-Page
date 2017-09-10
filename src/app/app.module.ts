@@ -1,7 +1,7 @@
 import { MoviesModule } from './movies/movies.module';
 import { HeaderModule } from './header/header.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ViewContainerRef } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap/ng2-bootstrap';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
