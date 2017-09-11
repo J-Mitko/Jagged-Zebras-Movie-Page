@@ -46,7 +46,7 @@ export class MoviesService {
   }
 
   addMovieToFavourites(movie: IMovie, userId: string) {
-    const address = '/users/' + userId + '/favourites/results';
+    const address = '/users/' + userId + '/favourites';
     const inList = false;
 
     this.db.list(address).subscribe(res => {

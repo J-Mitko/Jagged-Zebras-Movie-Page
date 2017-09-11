@@ -22,12 +22,13 @@ export class FavouritesResolverService implements Resolve<IMovie[]> {
 
     return this.movieService.getFavourites(userId).take(1)
       .map(res => {
-        if (res) {
-          return { results: Object.values(res['results']) };
-        } else {
-          this.router.navigate(['/']);
-          return null;
+        let movies = [];
+
+        if (res.$value !== null) {
+          movies = Object.values(res);
         }
+
+        return { results: movies };
       });
   }
 }
