@@ -1,3 +1,4 @@
+import { Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
@@ -47,23 +48,23 @@ export class MoviesService {
 
   addMovieToFavourites(movie: IMovie, userId: string) {
     const address = '/users/' + userId + '/favourites';
-    const inList = false;
-
-    this.db.list(address).subscribe(res => {
-      let isInList = false;
-      for (let i = 0; i < res.length; i++) {
-        if (res[i].title === movie.title) {
-          isInList = true;
-          break;
+    let inList = false;
+    const items = this.db.list(address, { preserveSnapshot: true });
+    items
+      .subscribe(snapshots => {
+        snapshots.forEach(snapshot => {
+          if (snapshot.val().title === movie.title) {
+            inList = true;
+          }
+        });
+      }).add(() => {
+        if (!inList) {
+          this.db.list(address).push(movie);
+          this.toast.showSuccess(movie.title + ' successfully added to favourites!');
+        } else {
+          this.toast.showWarning(movie.title + ' is already in favourites!');
         }
-      }
-      if (!isInList) {
-        this.db.list(address).push(movie);
-        this.toast.showSuccess(movie.title + ' successfully added to favourites!');
-      } else {
-        this.toast.showWarning(movie.title + ' is already in favourites!');
-      }
-    });
+      }).unsubscribe();
   }
 
   getFavourites(userId: string) {
