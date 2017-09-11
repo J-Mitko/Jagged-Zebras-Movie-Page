@@ -80,6 +80,7 @@ h3 span {
 }
 div.add-to-favourites {
     width: 84%;
+    margin-top: 24px;
     margin-right: auto;
     margin-left: auto;
     background-color: rgba(150, 150, 150, 0.4);
@@ -93,6 +94,7 @@ div.add-to-favourites {
 div.add-to-favourites:hover {
     width: 88%;
     background-color: rgba(200, 200, 200, 0.6);
+    cursor: pointer;
 }
 div.add-to-favourites a {
     display: block;
