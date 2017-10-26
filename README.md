@@ -1,6 +1,5 @@
 # TheJaggedZebrasPage
 Website where you can browse movie trailers.
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
 
 ![Project screen shot](https://i.imgur.com/rflttRH.jpg)
 
@@ -9,6 +8,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `npm install` and then `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Technologies 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
+
 Front-end
     Angular 4
     Bootstrap
