@@ -10,13 +10,14 @@ Run `npm install` and then `ng serve` for a dev server. Navigate to `http://loca
 ## Technologies 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
 
-Front-end
+# Front-end
     Angular 4
     Bootstrap
-Back-end
+# Back-end
     Firebase realtime database.
-    Angularfire2 4.0 for user authentication
+    Angularfire2 4.0 for user authentication.
     The Movie Db Api to get movies. | https://www.themoviedb.org/
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
