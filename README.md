@@ -1,5 +1,6 @@
 # TheJaggedZebrasPage
-Website where you can browse movie trailers.
+Website where you can browse movie trailers. 
+Link: https://my-app-58252.firebaseapp.com/
 
 ![Project screen shot](https://i.imgur.com/rflttRH.jpg)
 
